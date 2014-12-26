@@ -13,9 +13,7 @@ import java.util.HashMap;
 public class MainController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
-
-        model.addAttribute("message", "Welcome to Cactus Messenger");
+    public String startView(ModelMap model) {
         return "index";
     }
 
@@ -23,7 +21,7 @@ public class MainController {
     public @ResponseBody
     String show(){
         HashMap hash = new HashMap();
-        hash.put("msg", "welcome to spring angular js");
-        return String.valueOf(hash); // should print {msg=welcome to spring angular js}
+        hash.put("msg", "Welcome to Cactus Messenger");
+        return String.valueOf(hash);
     }
 }
