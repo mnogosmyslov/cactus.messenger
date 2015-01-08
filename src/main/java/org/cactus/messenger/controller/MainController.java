@@ -22,8 +22,8 @@ public class MainController {
     @RequestMapping(value="/getContent", method = RequestMethod.GET, produces = {"application/json"})
     public @ResponseBody
     String show(){
-        HashMap hash = new HashMap();
+        HashMap<String, String> hash = new HashMap<String, String>();
         hash.put("msg", "welcome to spring angular js");
-        return String.valueOf(hash); // should print {msg=welcome to spring angular js}
+        return String.valueOf(hash);
     }
 }
