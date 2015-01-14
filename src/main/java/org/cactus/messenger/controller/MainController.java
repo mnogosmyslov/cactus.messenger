@@ -1,5 +1,6 @@
 package org.cactus.messenger.controller;
 
+import org.cactus.messenger.common.PageNames;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +15,7 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-
-        model.addAttribute("message", "Welcome to Cactus Messenger");
-        return "index";
+        return PageNames.INDEX;
     }
 
     @RequestMapping(value="/getContent", method = RequestMethod.GET, produces = {"application/json"})
