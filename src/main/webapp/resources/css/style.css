@@ -91,7 +91,7 @@ a:hover {
 #sign_in button {
     margin: 20px auto 10px auto;
 }
-.backdrop{
+.backdrop {
     position: absolute;
     top: 0;
     z-index: 1;

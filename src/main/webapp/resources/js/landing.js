@@ -25,8 +25,8 @@ angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $mod
     $scope.ok = function () {
         $modalInstance.close();
     };
-
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
 });
