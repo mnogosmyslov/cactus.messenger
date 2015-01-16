@@ -14,7 +14,8 @@ angular.module('LandApp').controller('ModalCtrl', function ($scope, $modal, $log
             size: size,
             resolve: { },
             backdrop: true,
-            backdropClass: 'backdrop'
+            backdropClass: 'backdrop',
+            windowClass: 'fuckshadows'
         });
 
     };

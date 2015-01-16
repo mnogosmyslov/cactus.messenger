@@ -1,5 +1,5 @@
 body {
-    background: url(../img/back.png) no-repeat;
+    background: url(../img/back.png);
     background-size: auto;
 }
 #logo {
@@ -57,7 +57,6 @@ a:hover {
     background-color: #286090;
 }
 
-
 /*styles for sign-in page*/
 
 .ui-dialog-titlebar-close {
@@ -81,12 +80,12 @@ a:hover {
 }
 #sign_in input {
     position: relative;
-    right: auto;
-    left: auto;
     margin-right: auto;
     margin-left: auto;
     margin-top: 30px;
+    height: 30pt;
     width: 99%;
+    padding-right: 5px;
 }
 #sign_in button {
     margin: 20px auto 10px auto;
@@ -101,15 +100,56 @@ a:hover {
     opacity: 0.4;
 }
 #sub-in {
-    height: 25pt;
-    width: 70pt;
-    background-color: limegreen;
+    height: 30pt;
+    width: 99%;
+    background-color: #6dcff6;
     margin-left: auto;
     margin-right: auto;
     color: white;
-    font: normal 15pt Arial;
+    font: lighter 15pt Arial;
     border: none;
 }
 #sub-in:hover {
-    background-color: forestgreen;
+    background-color: #51a9cc;
+}
+
+.fuckshadows {
+    box-shadow: 0;
+}
+.modal-body{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-title {
+    text-align: center;
+}
+.sign_up{
+    font: lighter 11pt Calibri;
+}
+.sign_up a{
+    color: #6dcff6;
+    font: lighter 11pt Calibri;
+    margin-left: -5px;
+}
+.sign_up a:hover {
+    color: #51a9cc;
+    background: none;
+
+}
+
+/*sing up page styles*/
+
+#sign_up {
+    width: 60%;
+}
+
+#sign_up input {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    height: 30pt;
+    width: 99%;
+    padding-right: 5px;
 }
