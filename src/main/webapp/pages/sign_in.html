@@ -1,15 +1,24 @@
 <div id="sign_in">
-    <p>Sign in</p>
 
-    <label for="email">E-mail</label>
-    <input id="email" type="email"/>
-    </br>
+    <div class="modal-header">
+        <h3 class="modal-title">Sign in</h3>
+    </div>
 
-    <label for="password">Password</label>
-    <input id="password" type="password"/>
-    </br>
+    <div class="modal-body">
+        <label for="email">E-mail</label>
+        <input id="email" type="email"/>
+        </br>
 
-    <button id="sub-in">Submit</button>
+        <label for="password">Password</label>
+        <input id="password" type="password"/>
+        </br>
+    </div>
+
+    <div class="modal-footer">
+        <button id="sub-in" class="btn btn-primary" ng-click="ok()">Submit</button>
+    </div>
+
+
 </div>
 
 

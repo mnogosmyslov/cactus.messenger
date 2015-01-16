@@ -1,39 +1,32 @@
 /**
  * Created by Airofsummer on 14.01.2015.
  */
-    $(document).ready(function(){
-        $( "#closepop").hide();
-        $( "#signpop" ).dialog({
-            autoOpen: false,
-            minHeight: 400,
-            minWidth: 300,
-            height: '30%',
-            width: '25%',
-            modal: true,
-            position: ['middle',20],
-            hide: 150,
-            show: 150
+angular.module('LandApp', ['ui.bootstrap']);
+angular.module('LandApp').controller('ModalCtrl', function ($scope, $modal, $log) {
 
-        });
-        $( "#regpop" ).dialog({
-            autoOpen: false,
-            minHeight: 400,
-            minWidth: 300,
-            height: '30%',
-            width: '25%',
-            modal: true,
-            position: ['middle',20],
-            hide: 150,
-            show: 150
-        });
-        $( "#signin" ).click(function() {
-            $( "#signpop" ).dialog( "open" );
-            $( "#closepop" ).fadeIn(50);
-        });
-        $( "#closepop" ).click(function() {
-            $( "#signpop" ).dialog( "close" );
-            $( "#regpop" ).dialog( "close" );
-            $( "#closepop" ).fadeOut(50);
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    $scope.open = function (size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'myModal.html',
+            controller: 'ModalInstanceCtrl',
+            size: size,
+            resolve: { },
+            backdrop: true,
+            backdropClass: 'backdrop'
         });
 
-    });
+    };
+});
+
+angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});

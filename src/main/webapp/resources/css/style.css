@@ -32,12 +32,34 @@ a {
     color: white;
     font: normal 15pt Arial;
     margin-right: 15px;
+    padding: 10px 20px;
 }
 a:hover {
     text-decoration: none;
+    background-color: #286090;
+    color: #ffffff;
+}
+#header.btn, .btn-default {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #ffffff;
+    font: normal 15pt Arial;
+    margin-top: -5px;
+    padding: 10px 20px;
+}
+#header.btn:hover,
+.btn-default:hover,
+.btn:active,
+.btn-default:active {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #286090;
 }
 
+
 /*styles for sign-in page*/
+
 .ui-dialog-titlebar-close {
     visibility: hidden;
 }
@@ -69,14 +91,14 @@ a:hover {
 #sign_in button {
     margin: 20px auto 10px auto;
 }
-#closepop{
+.backdrop{
     position: absolute;
     top: 0;
     z-index: 1;
     width: 100%;
     height: 100%;
     background-color: #000000;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 #sub-in {
     height: 25pt;
