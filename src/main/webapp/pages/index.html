@@ -10,7 +10,9 @@
     <meta name = "robots" content = "" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
     <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
@@ -25,14 +27,14 @@
 <body ng-app="LandApp">
     <div ng-controller="ModalCtrl">
         <script type="text/ng-template" id="myModal.html">
-            <div id="signpop" ng-include="'/pages/sign_in.html'"></div>
+            <div ng-include="'/pages/sign_in.html'"></div>
         </script>
 
         <div id="logo"></div>
         <div id="header">
             <a href="#">About</a>
             <a href="#">Downloads</a>
-            <button class="btn btn-default" ng-click="open()">Sign in</button>
+            <a href="#/foo">Sign in</a>
         </div>
     </div>
 
@@ -41,3 +43,4 @@
 </body>
 
 </html>
+

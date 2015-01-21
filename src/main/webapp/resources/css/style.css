@@ -33,6 +33,7 @@ a {
     font: normal 15pt Arial;
     margin-right: 15px;
     padding: 10px 20px;
+    cursor: pointer;
 }
 a:hover {
     text-decoration: none;
@@ -85,7 +86,7 @@ a:hover {
     margin-top: 30px;
     height: 30pt;
     width: 99%;
-    padding-right: 5px;
+    padding-left: 10px;
 }
 #sign_in button {
     margin: 20px auto 10px auto;
@@ -135,13 +136,71 @@ a:hover {
 .sign_up a:hover {
     color: #51a9cc;
     background: none;
+}
 
+.css-form input.ng-invalid.ng-touched {
+    border: #FA787E solid 3px;
+    background: url("../img/noway.png") no-repeat right;
+    background-size: 15pt;
+    background-position: 97%;
+    box-shadow: none;
 }
 
 /*sing up page styles*/
+.well[ui-view]{
+
+}
+
+.ui-view-container {
+    position: relative;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+    opacity: 0;
+    -webkit-transform:scale3d(0.5, 0.5, 0.5);
+    -moz-transform:scale3d(0.5, 0.5, 0.5);
+    transform:scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter-active {
+    opacity: 1;
+    -webkit-transform:scale3d(1, 1, 1);
+    -moz-transform:scale3d(1, 1, 1);
+    transform:scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+    opacity: 1;
+    /*padding-left: 0px;*/
+    -webkit-transform:translate3d(0, 0, 0);
+    -moz-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+    opacity: 0;
+    /*padding-left: 100px;*/
+    -webkit-transform:translate3d(100px, 0, 0);
+    -moz-transform:translate3d(100px, 0, 0);
+    transform:translate3d(100px, 0, 0);
+}
 
 #sign_up {
-    width: 60%;
+    position: absolute;
+    z-index: 10;
+    background-color: #ffffff;
+    top: 0;
+
 }
 
 #sign_up input {
@@ -152,4 +211,10 @@ a:hover {
     height: 30pt;
     width: 99%;
     padding-right: 5px;
+}
+.row {
+    top: 0;
+    width: 99.8%;
+    height: 99.8%;
+    z-index: 9;
 }

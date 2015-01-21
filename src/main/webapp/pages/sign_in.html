@@ -2,15 +2,19 @@
 
     <h3 class="modal-title">Sign in</h3>
     <div class="modal-body">
-        <input id="email" type="email" placeholder="Username"/>
-        </br>
-        <input id="password" type="password" placeholder="Password"/>
-        </br>
-        <button id="sub-in" class="btn btn-primary" ng-click="ok()">Submit</button>
-        <div class="sign_up">Have no account? Poor you.<a href="/pages/sign_up.html">Sign up for free</a></div>
-
+        <form novalidate class="css-form">
+            <input id="email" type="email" placeholder="E-mail" ng-model="user.email" required />
+            </br>
+            <input id="password" type="password" placeholder="Password" ng-model="user.password" required />
+            </br>
+            <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
+        </form>
+        <div class="sign_up">Have no account? Poor you.<a href="#/foo">Sign up for free</a></div>
     </div>
-
 </div>
 
-
+<div class="row">
+    <div class="span12 ui-view-container">
+        <div class="well" ui-view></div>
+    </div>
+</div>
