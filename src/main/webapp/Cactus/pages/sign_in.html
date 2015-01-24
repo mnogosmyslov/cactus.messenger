@@ -1,11 +1,23 @@
 <div id="sign_in">
 
     <h3 class="modal-title">Sign in</h3>
-    <div class="modal-body" ng-controller="Validation">
+    <div class="modal-body">
         <form novalidate class="css-form">
-            <input id="email" type="email" placeholder="E-mail" ng-model="user.email" required />
+            <input
+                    id="email"
+                    type="email"
+                    placeholder="E-mail"
+                    ng-model="user.email"
+                    ng-model-options="{updateOn: 'blur'}"
+                    required/>
             </br>
-            <input id="password" type="password" placeholder="Password" ng-model="user.password" required />
+            <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    ng-model="user.password"
+                    ng-model-options="{updateOn: 'blur'}"
+                    required />
             </br>
             <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
         </form>

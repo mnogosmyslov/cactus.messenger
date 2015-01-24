@@ -17,16 +17,47 @@
             });
 
         };
+        $scope.master = {};
 
-    });
-    angular.module('LandApp').controller('Validation', ['$scope', function($scope) {
-    $scope.master = {};
+        $scope.check = function(user) {
+            $scope.master = angular.copy(user);
+        };
+    }).directive('shakeThat', ['$animate', function($animate) {
 
-    $scope.check = function(user) {
-        $scope.master = angular.copy(user);
-    };
+        return {
+            require: '^form',
+            scope: {
+                submit: '&',
+                submitted: '='
+            },
+            link: function(scope, element, attrs, form) {
 
-}]);
+                // listen on submit event
+                element.on('submit', function() {
+
+                    // tell angular to update scope
+                    scope.$apply(function() {
+
+                        // everything ok -> call submit fn from controller
+                        if (form.$valid) return scope.submit();
+
+                        // show error messages on submit
+                        scope.submitted = true;
+
+                        // shake that form
+                        $animate.addClass(element, 'shake', function() {
+                            $animate.removeClass(element, 'shake');
+                        });
+
+                    });
+
+                });
+
+            }
+        };
+
+    }]);
+
     angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
         $scope.ok = function () {
             $modalInstance.close();

@@ -3,7 +3,7 @@ body {
     background-size: auto;
 }
 #logo {
-    background: url(../img/cactusfont.png) no-repeat;
+    background: url(../img/cactusfont1.png) no-repeat;
     background-size: 150px;
     margin: 10px 0 0 20px;
     height: 60px;
@@ -125,6 +125,9 @@ a:hover {
 .modal-title {
     text-align: center;
 }
+.modal-content{
+    box-shadow: none;
+}
 .sign_up{
     font: lighter 11pt Calibri;
 }
@@ -144,55 +147,66 @@ a:hover {
     background-size: 15pt;
     box-shadow: none;
 }
+@keyframes shake {
+    0% {transform: translateX(0);}
+    12.5% {transform: translateX(-6px) rotateY(-5deg)}
+    37.5% {transform: translateX(5px) rotateY(4deg)}
+    62.5% {transform: translateX(-3px) rotateY(-2deg)}
+    87.5% {transform: translateX(2px) rotateY(1deg)}
+    100% {transform: translateX(0)}
+}
 
+.shake {
+    animation: shake 400ms ease-in-out;
+}
 /*sing up page styles*/
-/*.well[ui-view]{*/
+.well[ui-view]{
 
-/*}*/
+}
 
-/*.ui-view-container {*/
-    /*position: relative;*/
-/*}*/
+.ui-view-container {
+    position: relative;
+}
 
-/*[ui-view].ng-enter, [ui-view].ng-leave {*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*-webkit-transition:all .5s ease-in-out;*/
-    /*-moz-transition:all .5s ease-in-out;*/
-    /*-o-transition:all .5s ease-in-out;*/
-    /*transition:all .5s ease-in-out;*/
-/*}*/
+[ui-view].ng-enter, [ui-view].ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+}
 
-/*[ui-view].ng-enter {*/
-    /*opacity: 0;*/
-    /*-webkit-transform:scale3d(0.5, 0.5, 0.5);*/
-    /*-moz-transform:scale3d(0.5, 0.5, 0.5);*/
-    /*transform:scale3d(0.5, 0.5, 0.5);*/
-/*}*/
+[ui-view].ng-enter {
+    opacity: 0;
+    -webkit-transform:scale3d(0.5, 0.5, 0.5);
+    -moz-transform:scale3d(0.5, 0.5, 0.5);
+    transform:scale3d(0.5, 0.5, 0.5);
+}
 
-/*[ui-view].ng-enter-active {*/
-    /*opacity: 1;*/
-    /*-webkit-transform:scale3d(1, 1, 1);*/
-    /*-moz-transform:scale3d(1, 1, 1);*/
-    /*transform:scale3d(1, 1, 1);*/
-/*}*/
+[ui-view].ng-enter-active {
+    opacity: 1;
+    -webkit-transform:scale3d(1, 1, 1);
+    -moz-transform:scale3d(1, 1, 1);
+    transform:scale3d(1, 1, 1);
+}
 
-/*[ui-view].ng-leave {*/
-    /*opacity: 1;*/
-    /*padding-left: 0px;*/
-    /*-webkit-transform:translate3d(0, 0, 0);*/
-    /*-moz-transform:translate3d(0, 0, 0);*/
-    /*transform:translate3d(0, 0, 0);*/
-/*}*/
+[ui-view].ng-leave {
+    opacity: 1;
+    padding-left: 0px;
+    -webkit-transform:translate3d(0, 0, 0);
+    -moz-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+}
 
-/*[ui-view].ng-leave-active {*/
-    /*opacity: 0;*/
-    /*padding-left: 100px;*/
-    /*-webkit-transform:translate3d(100px, 0, 0);*/
-    /*-moz-transform:translate3d(100px, 0, 0);*/
-    /*transform:translate3d(100px, 0, 0);*/
-/*}*/
+[ui-view].ng-leave-active {
+    opacity: 0;
+    padding-left: 100px;
+    -webkit-transform:translate3d(100px, 0, 0);
+    -moz-transform:translate3d(100px, 0, 0);
+    transform:translate3d(100px, 0, 0);
+}
 
 #sign_up {
     position: absolute;
