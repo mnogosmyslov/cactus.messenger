@@ -6,7 +6,7 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/Cactus"};
+        return new String[] {"/"};
     }
 
     @Override

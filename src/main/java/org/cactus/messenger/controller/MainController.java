@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("/Cactus")
+@RequestMapping("/")
 public class MainController {
 
     @RequestMapping(method = RequestMethod.GET)

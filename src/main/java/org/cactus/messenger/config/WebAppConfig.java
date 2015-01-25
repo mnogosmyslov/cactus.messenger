@@ -18,7 +18,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/Cactus/pages/**").addResourceLocations("/pages/");
+        registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
