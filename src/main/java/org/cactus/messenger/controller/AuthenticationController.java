@@ -1,13 +1,16 @@
 package org.cactus.messenger.controller;
 
 import org.cactus.messenger.common.PageNames;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+@Controller
+@RequestMapping("/")
 public class AuthenticationController {
 
-    @RequestMapping(value = "/signin", method = GET)
+    @RequestMapping(value = "/sign_in", method = GET)
     public String signinView() {
         return PageNames.SIGNIN;
     }

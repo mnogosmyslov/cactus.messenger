@@ -6,12 +6,13 @@
 
     <groupId>org.cactus</groupId>
     <artifactId>org.cactus.messenger</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <packaging>war</packaging>
 
     <properties>
         <spring.version>4.1.4.RELEASE</spring.version>
+        <spring.securiry>3.2.5.RELEASE</spring.securiry>
         <spring.data.version>1.7.1.RELEASE</spring.data.version>
         <hibernate.version>4.3.7.Final</hibernate.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
@@ -56,13 +57,38 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>4.1.2.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring.data.version}</version>
+        </dependency>
+
+        <!-- Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.securiry}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.securiry}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.securiry}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.securiry}</version>
         </dependency>
 
         <!-- for DataBase -->
@@ -102,17 +128,18 @@
             <artifactId>thymeleaf-spring4</artifactId>
             <version>${thymeleaf.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity3</artifactId>
-            <version>${thymeleaf-extras-springsecurity3.version}</version>
-        </dependency>-->
 
         <!-- Common Utils -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.1</version>
         </dependency>
 
         <!-- Logging -->
