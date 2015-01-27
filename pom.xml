@@ -28,6 +28,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.cactus</groupId>
+            <artifactId>org.cactus.server</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <!-- MVC -->
         <dependency>
             <groupId>org.springframework</groupId>
