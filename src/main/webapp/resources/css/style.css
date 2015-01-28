@@ -1,23 +1,37 @@
-body {
-    background: url(../img/back.png);
-    background-size: auto;
-}
 #logo {
+    position: relative;
     background: url(../img/cactusfont.png) no-repeat;
-    background-size: 150px;
+    background-size: 170px;
     margin: 10px 0 0 20px;
     height: 60px;
-    width: 150px;
-
+    width: 170px;
+    z-index: 901;
+    left: 0;
+    float: left;
+    opacity: 0;
 }
 h1 {
     margin-top: 50px;
     font: bolder 30pt Arial;
     text-align: center;
 }
-#header {
+#header{
+    position:fixed;
+    z-index:902;
+    width: 100%;
+    left: 0;
+}
+#header a{
+    position: relative;
     float: right;
-    margin: -50px 30px 0 0;
+    margin: 20px 30px 0 0;
+    z-index: 901;
+}
+#header input{
+    position: relative;
+    float: right;
+    margin: 20px 30px 0 0;
+    z-index: 901;
 }
 a {
     color: white;
@@ -43,7 +57,9 @@ a:hover {
 #header.btn:hover,
 .btn-default:hover,
 .btn:active,
-.btn-default:active {
+.btn-default:active,
+.btn:focus,
+.btn-default:focus{
     border-radius: 0;
     color: #ffffff;
     background-color: #286090;
@@ -55,7 +71,7 @@ a:hover {
     visibility: hidden;
 }
 #signpop, #sign_in {
-    z-index: 2;
+    z-index: 901;
     position: relative;
 }
 #sign_in p{
@@ -83,7 +99,7 @@ a:hover {
     margin: 20px auto 10px auto;
 }
 .backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 1;
     width: 100%;
@@ -118,6 +134,10 @@ a:hover {
 }
 .modal-content{
     box-shadow: none;
+}
+.modal-dialog{
+    margin-top: 100px;
+
 }
 .sign_up{
     font: lighter 11pt Calibri;
@@ -154,7 +174,7 @@ a:hover {
 
 #sign_up {
     position: absolute;
-    z-index: 10;
+    z-index: 10000;
     background-color: #ffffff;
     top: 0;
 
@@ -168,4 +188,13 @@ a:hover {
     height: 30pt;
     width: 99%;
     padding-right: 5px;
+}
+#headback {
+    position: fixed;
+    z-index: 800;
+    width: 100%;
+    height: 83px;
+    background-color: #3b81af;
+    left: 0;
+    opacity: 0;
 }

@@ -10,31 +10,29 @@
     <meta name = "robots" content = "" />
 
     <link th:href="@{/resources/css/bootstrap.css}" href="../resources/css/bootstrap.css" rel="stylesheet" />
-    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/css/magic.css}" href="../resources/css/magic.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 </head>
 
 <body ng-app="LandApp" class="demo-3">
-    <div ng-controller="ModalCtrl">
-        <script type="text/ng-template" id="myModal.html">
-            <div ng-include="'/cactus/pages/sign_in.html'" ></div>
-        </script>
 
-        <div id="logo"></div>
-        <div id="header"  style="position:fixed; z-index:100; right: 0;">
-            <a href="#">About</a>
-            <a href="#">Downloads</a>
-            <input class="btn btn-default" type="button" ng-click="open()" value="Sign in"/>
-        </div>
-    </div>
     <div id="container" class="container intro-effect-sliced">
         <!-- Top Navigation -->
-        <div class="codrops-top clearfix">
+        <div ng-controller="ModalCtrl">
+            <script type="text/ng-template" id="myModal.html">
+                <div ng-include="'/messenger/pages/sign_in.html'"></div>
+            </script>
+            <div id="header">
+                <div id="headback"></div>
+                <div id="logo"></div>
+                <input class="btn btn-default" type="button" ng-click="open()" value="Sign in"/>
+                <a href="#">About</a>
+                <a href="#">Downloads</a>
+            </div>
 
         </div>
-
         <header class="header">
             <div class="bg-img"><img th:src="@{/resources/img/3.jpg}" src="../resources/img/3.jpg" alt="Background Image" /></div>
             <div class="title">

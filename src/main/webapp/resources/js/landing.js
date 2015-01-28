@@ -18,7 +18,22 @@
             });
 
         };
+
+        $scope.givereg = function (size) {
+
+            var modalInstance = $modal.givereg({
+                templateUrl: 'myReg.html',
+                controller: 'ModalRegCtrl',
+                size: size,
+                resolve: { },
+                backdrop: true,
+                backdropClass: 'backdrop',
+                windowClass: 'fuckshadows'
+            });
+
+        };
         $scope.master = {};
+
 
         $scope.check = function(user) {
             $scope.master = angular.copy(user);
@@ -60,10 +75,15 @@
     }]);
 
     angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-        $scope.ok = function () {
+        $scope.close = function () {
             $modalInstance.close();
         };
     });
+angular.module('LandApp').controller('ModalRegCtrl', function ($scope, $modalInstance) {
+    $scope.close = function () {
+        $modalInstance.close();
+    };
+});
 /*!
  * classie v1.0.1
  * class helper functions
@@ -75,9 +95,6 @@
  * classie.remove( elem, 'my-unwanted-class' )
  * classie.toggle( elem, 'my-class' )
  */
-
-/*jshint browser: true, strict: true, undef: true, unused: true */
-/*global define: false, module: false */
 
 ( function( window ) {
 

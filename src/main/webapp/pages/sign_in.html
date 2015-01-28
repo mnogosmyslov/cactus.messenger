@@ -19,14 +19,13 @@
                     ng-model-options="{updateOn: 'blur'}"
                     required />
             </br>
-            <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
+                    <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
         </form>
-        <div class="sign_up">Have no account? Poor you.<a href="#/foo">Sign up for free</a></div>
+        <div class="sign_up">Have no account? Poor you.<input class="btn btn-default" type="button" ng-click="givereg()" value="Sign up"/>
+        </div>
     </div>
 </div>
 
-<!--<div class="row">-->
-    <!--<div class="span12 ui-view-container">-->
-        <!--<div class="well" ui-view></div>-->
-    <!--</div>-->
-<!--</div>-->
+<script type="text/ng-template" id="myReg.html">
+    <div ng-include="'/messenger/pages/sign_up.html'"></div>
+</script>

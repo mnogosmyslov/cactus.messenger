@@ -85,8 +85,8 @@ body{
 }
 .letters {
     background-image: url(../img/cactusfont.png);
-    width: 700px;
-    height: 255px;
+    width: 722px;
+    height: 324px;
     margin: auto;
     background-size: 100%;
     z-index: 3;
@@ -97,7 +97,7 @@ button.trigger {
     position: fixed;
     bottom: 40px;
     left: 50%;
-    z-index: 5000;
+    z-index: 999;
     display: block;
     margin-left: -0.5em;
     padding: 0;
@@ -231,7 +231,8 @@ button.trigger span::before {
     transition-property: opacity;
 }
 
-.intro-effect-sliced:not(.notrans) .content > div {
+.intro-effect-sliced:not(.notrans) .content > div,
+.intro-effect-sliced:not(.notrans) #headback{
     -webkit-transition-property: -webkit-transform, opacity;
     transition-property: transform, opacity;
 }
@@ -241,7 +242,10 @@ button.trigger span::before {
 .intro-effect-sliced:not(.notrans) .title,
 .intro-effect-sliced:not(.notrans) .header p,
 .intro-effect-sliced:not(.notrans) .content > div,
-.intro-effect-sliced:not(.notrans) .codrops-demos a {
+.intro-effect-sliced:not(.notrans) .codrops-demos a,
+.intro-effect-sliced:not(.notrans) .letters,
+.intro-effect-sliced:not(.notrans) #logo,
+.intro-effect-sliced:not(.notrans) #headback{
     -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
     transition-timing-function: cubic-bezier(0.7,0,0.3,1);
     -webkit-transition-duration: 0.5s;
@@ -252,14 +256,20 @@ button.trigger span::before {
 .intro-effect-sliced.modify:not(.notrans) .title,
 .intro-effect-sliced.modify:not(.notrans) .header p,
 .intro-effect-sliced.modify:not(.notrans) .content > div,
-.intro-effect-sliced.modify:not(.notrans) .codrops-demos a {
+.intro-effect-sliced.modify:not(.notrans) .codrops-demos a,
+.intro-effect-sliced.modify:not(.notrans) .letters,
+.intro-effect-sliced.modify:not(.notrans) #logo{
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
 }
 
+.intro-effect-sliced.modify:not(.notrans) #headback {
+    transition: none;
+}
 .intro-effect-sliced .bg-img:first-child {
     bottom: 50%;
     position: fixed;
+    z-index: 900;
 }
 
 .intro-effect-sliced .bg-img:last-child {
@@ -273,15 +283,19 @@ button.trigger span::before {
 }
 
 .intro-effect-sliced.modify .bg-img:first-child {
-    -webkit-transform: translateY(-80%);
-    transform: translateY(-80%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
 }
 
 .intro-effect-sliced.modify .bg-img:last-child {
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
 }
+.intro-effect-sliced.modify #logo,
+.intro-effect-sliced.modify #headback{
+    opacity: 1;
 
+}
 .intro-effect-sliced .codrops-demos {
     text-align: center;
 }
@@ -310,8 +324,9 @@ button.trigger span::before {
     color: #514753;
 }
 
-.intro-effect-sliced.modify .header p {
-    opacity: 1;
+.intro-effect-sliced.modify .header .letters {
+    -webkit-transform: scale(0);
+    transform:  scale(0);
 }
 
 .intro-effect-sliced.modify .header h1 {
