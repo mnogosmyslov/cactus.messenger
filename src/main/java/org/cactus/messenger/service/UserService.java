@@ -5,5 +5,6 @@ import org.cactus.server.entity.UserAccount;
 public interface UserService {
 
     UserAccount getById(long id);
+    UserAccount getByLogin(String email);
 
 }
