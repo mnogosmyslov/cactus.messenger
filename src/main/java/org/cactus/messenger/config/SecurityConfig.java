@@ -1,5 +1,6 @@
 package org.cactus.messenger.config;
 
+import org.cactus.messenger.common.PageNames;
 import org.cactus.messenger.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,18 +37,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and();
 
         http.formLogin()
-                .loginPage("/signin")
+                .loginPage("/" + PageNames.SIGNIN)
                 .loginProcessingUrl("/j_spring_security_check")
-                .failureUrl("/signin?error")
+                .failureUrl("/" + PageNames.SIGNIN + "?error")
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
+                .defaultSuccessUrl("/" + PageNames.PROFILE) //TODO: edit to messenger page
                 .permitAll();
 
         http.logout()
                 .permitAll()
-                .logoutUrl("/signout")
-                .logoutSuccessUrl("/signout?signout")
-                .invalidateHttpSession(true);
+                .logoutUrl("/" + PageNames.SIGNOUT)
+                .logoutSuccessUrl("/" + PageNames.SIGNOUT + "?signout")
+                        .invalidateHttpSession(true);
 
     }
 
@@ -56,4 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new ShaPasswordEncoder();
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        ShaPasswordEncoder encoder = new ShaPasswordEncoder();
+        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+    }
 }
