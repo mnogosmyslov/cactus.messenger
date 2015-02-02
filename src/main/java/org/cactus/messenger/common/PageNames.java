@@ -12,5 +12,6 @@ public abstract class PageNames {
     public final static String SIGNUP = "sign_up";
     public final static String SIGNOUT = "sign_out";
     public final static String PROFILE = "profile";
+    public final static String MESSENGER = "chat";
 
 }

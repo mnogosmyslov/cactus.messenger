@@ -64,29 +64,29 @@ a:hover {
     color: #ffffff;
     background-color: #286090;
 }
+input, input:focus {
+     outline: 0;
+ }
 
-/*styles for sign-in page*/
+/*styles for sign-in and sign_up pages*/
 
 .ui-dialog-titlebar-close {
     visibility: hidden;
 }
-#signpop, #sign_in {
+#signpop, #sign_in, #sign_up {
     z-index: 901;
     position: relative;
 }
-#sign_in p{
+#sign_in p, #sign_up p{
     text-align: center;
     font: normal 15pt Arial;
 }
-#sign_in {
+#sign_in, #sign_up p {
     background-color: #ffffff;
     padding: 20px 20px 20px 30px;
 }
-#sign_in label {
-    position: relative;
-    top: 29px;
-}
-#sign_in input {
+
+#sign_in input, #sign_up input{
     position: relative;
     margin-right: auto;
     margin-left: auto;
@@ -94,8 +94,9 @@ a:hover {
     height: 30pt;
     width: 99%;
     padding-left: 10px;
+    font: lighter 15pt Arial!important;
 }
-#sign_in button {
+#sign_in button, #sign_up button{
     margin: 20px auto 10px auto;
 }
 .backdrop {
@@ -128,28 +129,18 @@ a:hover {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    border: none;
 }
 .modal-title {
     text-align: center;
 }
-.modal-content{
+.modal-content, .modal-content div{
     box-shadow: none;
+    border: none;
 }
 .modal-dialog{
     margin-top: 100px;
 
-}
-.sign_up{
-    font: lighter 11pt Calibri;
-}
-.sign_up a{
-    color: #6dcff6;
-    font: lighter 11pt Calibri;
-    margin-left: -5px;
-}
-.sign_up a:hover {
-    color: #51a9cc;
-    background: none;
 }
 
 .css-form input.ng-invalid.ng-touched {
@@ -170,25 +161,6 @@ a:hover {
 .shake {
     animation: shake 400ms ease-in-out;
 }
-/*sing up page styles*/
-
-#sign_up {
-    position: absolute;
-    z-index: 10000;
-    background-color: #ffffff;
-    top: 0;
-
-}
-
-#sign_up input {
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 30px;
-    height: 30pt;
-    width: 99%;
-    padding-right: 5px;
-}
 #headback {
     position: fixed;
     z-index: 800;
@@ -197,4 +169,33 @@ a:hover {
     background-color: #3b81af;
     left: 0;
     opacity: 0;
+}
+/*auth page*/
+#tabs {
+    padding: 20px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    float: left;
+    margin: 3px 3px 0px 3px;
+    padding: 5px 5px 0px 5px;
+    background-color: #6dcff6;
+    color: #fff;
+    cursor: pointer;
+}
+#mainView {
+    clear: both;
+    padding: 0 1em;
+}
+.active {
+    background-color: #fff;
+    color: #6dcff6;
+    border: 1px solid #6dcff6;
+}
+.active:hover {
+    background-color: #9ddff9;
 }

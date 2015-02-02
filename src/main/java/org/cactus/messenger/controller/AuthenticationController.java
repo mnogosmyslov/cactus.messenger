@@ -15,4 +15,17 @@ public class AuthenticationController {
         return PageNames.SIGNIN;
     }
 
+    @RequestMapping(value = "/profile", method = GET)
+    public String profileView() {
+        return PageNames.PROFILE;
+    }
+
+    @RequestMapping(value = "/sign_up", method = GET)
+    public String signupView() {
+        return PageNames.SIGNUP;
+    }
+    @RequestMapping(value = "/chat", method = GET)
+    public String messengerView() {
+        return PageNames.MESSENGER;
+    }
 }

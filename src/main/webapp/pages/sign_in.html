@@ -1,6 +1,4 @@
 <div id="sign_in">
-
-    <h3 class="modal-title">Sign in</h3>
     <div class="modal-body">
         <form novalidate class="css-form">
             <input
@@ -19,13 +17,10 @@
                     ng-model-options="{updateOn: 'blur'}"
                     required />
             </br>
-                    <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
+            <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
         </form>
-        <div class="sign_up">Have no account? Poor you.<input class="btn btn-default" type="button" ng-click="givereg()" value="Sign up"/>
         </div>
     </div>
 </div>
 
-<script type="text/ng-template" id="myReg.html">
-    <div ng-include="'/cactus/pages/sign_up.html'"></div>
-</script>
+

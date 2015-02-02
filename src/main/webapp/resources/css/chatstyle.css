@@ -1,0 +1,145 @@
+header {
+    background-color: #a0cede;
+    position: absolute;
+    z-index: 10000;
+    height: 70px;
+    width: 100%;
+    top: 0;
+}
+header input {
+    margin: 7px 5px;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font: lighter 10pt Arial;
+}
+header input:hover {
+    background: #71a9bd;
+}
+header div {
+    float: left;
+}
+aside {
+    position: absolute;
+    width: 20%;
+    border-right: solid 3px #cad4d6;
+    height: 100%;
+}
+main{
+    position: absolute;
+    left: 23%;
+    margin-top: 83px;
+}
+#logo{
+    background-size: 90%;
+    opacity: 1;
+    padding: 0;
+    height: 54px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 100px 0 0 0;
+}
+li {
+    float: none;
+    height: 8em;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    border-top: 1px solid #cad4d6;
+    margin: 0;
+    padding: 0;
+}
+
+li:last-child {
+    border-bottom: 1px solid #cad4d6;
+}
+li:hover {
+    background-color: #cad4d6;
+}
+.active {
+    background-color: #fff;
+    color: #6dcff6;
+    border: none;
+    border-top: 1px solid #cad4d6;
+}
+.active:hover {
+    background-color: #9ddff9;
+}
+
+#chatPreView {
+    position: relative;
+}
+
+/*settings page*/
+.modal-dialog {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content  {
+    float: none;
+    position: absolute;
+    top: 0!important;
+    left: 0!important;
+    width: 100%;
+    height: 100%;
+}
+#settings {
+    height: 100%;
+    width: 60%;
+    margin: 95px auto 0 auto;
+    min-width: 401px;
+}
+#settings .profile {
+
+}
+.useravatar {
+    background: url("../img/miniavat.png") no-repeat;
+    background-size: 150px;
+    height: 165px;
+}
+input[disabled]{
+    background: none;
+    border: none;
+    width: auto;
+}
+
+.main-info input{
+    top: -165px;
+    position: relative;
+}
+.main-info p{
+     top: -165px;
+     position: relative;
+     float: left;
+     left: 180px;
+     margin: 0 160px 20px 0;
+ }
+
+.back {
+    background: url("../img/backback.png") no-repeat;
+    top: 100px;
+    left: 10%;
+    position: absolute;
+    background-size: 50px;
+    height: 50px;
+    width: 50px;
+    opacity: 0.4;
+    transition: 0.2s ease-in-out ;
+}
+
+.back:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+/*contacts modal*/
+

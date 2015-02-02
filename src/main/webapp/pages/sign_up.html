@@ -1,13 +1,32 @@
 <div id="sign_up">
-    <p>Sign up</p>
-    <input id="email" type="email"/>
-    <input id="password" type="password"/>
-    <input id="repPassword" type="password"/>
-    <input id="login" type="text"/>
-    <input id="name" type="text"/>
-    <input id="surname" type="text"/>
-    <button id="sub-up">Submit</button>
-
+    <div class="modal-body">
+        <form novalidate class="css-form">
+            <input
+                    id="email"
+                    type="email"
+                    placeholder="E-mail"
+                    ng-model="user.email"
+                    ng-model-options="{updateOn: 'blur'}"
+                    required/>
+            </br>
+            <input id="username"
+                   type="text"
+                   placeholder="Usename"
+                   ng-model="user.name"
+                   ng-model-options="{updateOn: 'blur'}"
+                   required/>
+            </br>
+            <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    ng-model="user.password"
+                    ng-model-options="{updateOn: 'blur'}"
+                    required />
+            </br>
+            <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
+        </form>
+    </div>
 </div>
 
 

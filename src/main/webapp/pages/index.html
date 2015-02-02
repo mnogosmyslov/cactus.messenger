@@ -19,27 +19,26 @@
 <body ng-app="LandApp" class="demo-3">
 
     <div id="container" class="container intro-effect-sliced">
-        <!-- Top Navigation -->
         <div ng-controller="ModalCtrl">
             <script type="text/ng-template" id="myModal.html">
-                <div ng-include="'/cactus/pages/sign_in.html'"></div>
+                <div ng-include="'/cactus/pages/auth.html'"></div>
             </script>
             <div id="header">
                 <div id="headback"></div>
                 <div id="logo"></div>
                 <input class="btn btn-default" type="button" ng-click="open()" value="Sign in"/>
-                <a href="#">About</a>
+                <a href="/cactus/pages/chat.html">Chatty</a>
                 <a href="#">Downloads</a>
             </div>
-
         </div>
+
         <header class="header">
             <div class="bg-img"><img th:src="@{/resources/img/3.jpg}" src="../resources/img/3.jpg" alt="Background Image" /></div>
             <div class="title">
                 <div class="letters" style="margin-top:-90px"></div>
                 <p class="subline">Landing is page full of cacti!</p>
             </div>
-            <div class="bg-img"><img th:src="@{/resources/img/3.jpg}" src="/resources/img/3.jpg" alt="Background Image" /></div>
+            <div class="bg-img"><img th:src="@{/resources/img/3.jpg}" src="../resources/img/3.jpg" alt="Background Image" /></div>
         </header>
 
         <button class="trigger" data-info="Scroll to see more!"><span>Trigger</span></button>
@@ -62,7 +61,7 @@
 
             </div>
         </article>
-    </div><!-- /container -->
+    </div>
 
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
@@ -73,7 +72,7 @@
 
     <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
     <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
-    <script th:src="@{/resources/js/landing.js}" src="../resources/js/landing.js"></script>
+    <script th:src="@{/resources/js/controllers/landing.js}" src="../resources/js/controllers/landing.js"></script>
 
 </body>
 

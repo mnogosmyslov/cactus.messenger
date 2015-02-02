@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name = "description" content = "" />
+    <meta name = "keywords" content = "" />
+    <meta name = "robots" content = "" />
+
+    <link th:href="@{/resources/css/bootstrap.css}" href="../resources/css/bootstrap.css" rel="stylesheet" />
+    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/resources/css/chatstyle.css}" href="../resources/css/chatstyle.css" rel="stylesheet" type="text/css"/>
+
+    <title th:text="#{main.title}"></title>
+
+</head>
+<body ng-app="ChatApp">
+
+    <script type="text/ng-template" id="settingsModal.html">
+        <div ng-include="'/cactus/pages/settings.html'"></div>
+    </script>
+    <script type="text/ng-template" id="contactsModal.html">
+        <div ng-include="'/cactus/pages/contacts.html'"></div>
+    </script>
+    <header class="greenheader" >
+        <a id="logo" href="/cactus/pages/index.html"></a>
+        <div class="settings" ng-controller="Settings">
+        <input id="user-settings" type="button" value="Settings" ng-click="open()"/>
+        </div>
+        <div id="contacts" ng-controller="Contacts">
+        <input id="user-contacts" type="button" value="Contacts" ng-click="open('sm')"/>
+        </div>
+    </header>
+
+    <div ng-controller="ChatApi">
+        <aside id="chatlist">
+            <div>
+                <ul>
+                    <li ng-repeat="chat in chats"
+                        ng-class="{active:isActiveChat(chat.url)}"
+                        ng-click="onClickChat(chat)">{{chat.title}}</li>
+                </ul>
+            </div>
+            <script type="text/ng-template" id="one.tpl.html">
+                <div id="viewOne">
+                    <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
+                </div>
+            </script>
+
+            <script type="text/ng-template" id="two.tpl.html">
+                <div id="viewTwo">
+                    <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
+                </div>
+            </script>
+        </aside>
+        <main>
+            <div id="chatPreView">
+                <div ng-include="currentChat"></div>
+            </div>
+        </main>
+
+
+
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.0-beta.1/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.js"></script>
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+    <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
+    <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
+    <script th:src="@{/resources/js/controllers/landing.js}" src="../resources/js/controllers/chat.js"></script>
+</body>
+</html>

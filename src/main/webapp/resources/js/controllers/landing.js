@@ -19,25 +19,28 @@
 
         };
 
-        $scope.givereg = function (size) {
-
-            var modalInstance = $modal.givereg({
-                templateUrl: 'myReg.html',
-                controller: 'ModalRegCtrl',
-                size: size,
-                resolve: { },
-                backdrop: true,
-                backdropClass: 'backdrop',
-                windowClass: 'fuckshadows'
-            });
-
-        };
         $scope.master = {};
-
 
         $scope.check = function(user) {
             $scope.master = angular.copy(user);
         };
+    }).controller("TabsCtrl", function($scope){
+        $scope.tabs = [{
+            title: 'Sign in',
+            url: 'one.tpl.html'
+        }, {
+            title: 'Sign up',
+            url: 'two.tpl.html'
+        }];
+        $scope.currentTab = 'one.tpl.html';
+
+        $scope.onClickTab = function (tab) {
+            $scope.currentTab = tab.url;
+        }
+
+        $scope.isActiveTab = function(tabUrl) {
+            return tabUrl == $scope.currentTab;
+        }
     }).directive('shakeThat', ['$animate', function($animate) {
 
         return {
@@ -79,11 +82,6 @@
             $modalInstance.close();
         };
     });
-angular.module('LandApp').controller('ModalRegCtrl', function ($scope, $modalInstance) {
-    $scope.close = function () {
-        $modalInstance.close();
-    };
-});
 /*!
  * classie v1.0.1
  * class helper functions
