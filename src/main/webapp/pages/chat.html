@@ -24,36 +24,60 @@
     <script type="text/ng-template" id="contactsModal.html">
         <div ng-include="'/cactus/pages/contacts.html'"></div>
     </script>
-    <header class="greenheader" >
+    <div ng-controller="Header">
+    <header class="greenheader">
         <a id="logo" href="/cactus/pages/index.html"></a>
-        <div class="settings" ng-controller="Settings">
+        <div class="settings">
         <input id="user-settings" type="button" value="Settings" ng-click="open()"/>
         </div>
-        <div id="contacts" ng-controller="Contacts">
-        <input id="user-contacts" type="button" value="Contacts" ng-click="open('sm')"/>
-        </div>
+        <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
     </header>
 
+        <div class="contacts" ng-show="contacts">
+            <div class="contacts-content">
+                <form>
+                    <legend>Contacts <a href="#" ng-click="add_cont = !add_cont" ng-class="{ active: add_cont }">Add contact</a></legend>
+                    <input ng-model="searchText">
+                </form>
+
+                <div>
+                    <ul>
+                        <li ng-repeat="contact in contactLists | filter:searchText"
+                            ng-class="{active:isActiveChat(contact.url)}"
+                            ng-click="onClickChat(contact)">{{contact.title}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
+        </div>
+    </div>
     <div ng-controller="ChatApi">
         <aside id="chatlist">
+            <input ng-model="searchText">
             <div>
                 <ul>
-                    <li ng-repeat="chat in chats"
+                    <li ng-repeat="chat in chats | filter:searchText"
                         ng-class="{active:isActiveChat(chat.url)}"
                         ng-click="onClickChat(chat)">{{chat.title}}</li>
                 </ul>
             </div>
-            <script type="text/ng-template" id="one.tpl.html">
-                <div id="viewOne">
-                    <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
-                </div>
+            <script type="text/ng-template" id="force_gripper.tpl.html">
+                <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
             </script>
 
-            <script type="text/ng-template" id="two.tpl.html">
-                <div id="viewTwo">
-                    <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
-                </div>
+            <script type="text/ng-template" id="policebox.tpl.html">
+                <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
             </script>
+            <script type="text/ng-template" id="albus.tpl.html">
+                <div ng-include="'/cactus/pages/chats/albus.html'"></div>
+            </script>
+            <script type="text/ng-template" id="sauron.tpl.html">
+                <div ng-include="'/cactus/pages/chats/sauron.html'"></div>
+            </script>
+            <script type="text/ng-template" id="wenk-wenk.tpl.html">
+                <div ng-include="'/cactus/pages/chats/wenk-wenk.html'"></div>
+            </script>
+
         </aside>
         <main>
             <div id="chatPreView">
