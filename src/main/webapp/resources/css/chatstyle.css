@@ -1,3 +1,6 @@
+html {
+    overflow-x: hidden;
+}
 header {
     background-color: #a0cede;
     position: absolute;
@@ -38,7 +41,7 @@ main{
     position: relative;
     left: 23%;
     margin-top: 83px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 #logo{
     background-size: 90%;
@@ -110,11 +113,7 @@ li:hover {
 #settings .profile {
 
 }
-.useravatar {
-    background: url("../img/miniavat.png") no-repeat;
-    background-size: 150px;
-    height: 165px;
-}
+
 input[disabled]{
     background: none;
     border: none;

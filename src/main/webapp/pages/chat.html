@@ -24,13 +24,17 @@
     <script type="text/ng-template" id="contactsModal.html">
         <div ng-include="'/cactus/pages/contacts.html'"></div>
     </script>
-    <div ng-controller="Header">
+    <div ng-controller="HeaderContacts">
     <header class="greenheader">
         <a id="logo" href="/cactus/pages/index.html"></a>
-        <div class="settings">
-        <input id="user-settings" type="button" value="Settings" ng-click="open()"/>
+        <div ng-controller="HeaderSettings">
+            <div class="settings">
+                <input id="user-settings" type="button" value="Settings" ng-click="open()"/>
+            </div>
         </div>
-        <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
+
+            <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
+
     </header>
 
         <div class="contacts" ng-show="contacts">
@@ -51,6 +55,7 @@
             <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
         </div>
     </div>
+    </div>
     <div ng-controller="ChatApi">
         <aside id="chatlist">
             <input ng-model="searchText">
@@ -61,22 +66,6 @@
                         ng-click="onClickChat(chat)">{{chat.title}}</li>
                 </ul>
             </div>
-            <script type="text/ng-template" id="force_gripper.tpl.html">
-                <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
-            </script>
-
-            <script type="text/ng-template" id="policebox.tpl.html">
-                <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
-            </script>
-            <script type="text/ng-template" id="albus.tpl.html">
-                <div ng-include="'/cactus/pages/chats/albus.html'"></div>
-            </script>
-            <script type="text/ng-template" id="sauron.tpl.html">
-                <div ng-include="'/cactus/pages/chats/sauron.html'"></div>
-            </script>
-            <script type="text/ng-template" id="wenk-wenk.tpl.html">
-                <div ng-include="'/cactus/pages/chats/wenk-wenk.html'"></div>
-            </script>
 
         </aside>
         <main>
@@ -85,6 +74,22 @@
             </div>
         </main>
 
+        <script type="text/ng-template" id="force_gripper.tpl.html">
+            <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
+        </script>
+
+        <script type="text/ng-template" id="policebox.tpl.html">
+            <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
+        </script>
+        <script type="text/ng-template" id="albus.tpl.html">
+            <div ng-include="'/cactus/pages/chats/albus.html'"></div>
+        </script>
+        <script type="text/ng-template" id="sauron.tpl.html">
+            <div ng-include="'/cactus/pages/chats/sauron.html'"></div>
+        </script>
+        <script type="text/ng-template" id="wenk-wenk.tpl.html">
+            <div ng-include="'/cactus/pages/chats/wenk-wenk.html'"></div>
+        </script>
 
 
     </div>

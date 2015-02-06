@@ -1,16 +1,16 @@
 <div class="back" ng-click="close()"></div>
-<div id="settings">
+<div id="settings" ng-controller="ShowInfo as settings">
     <div class="main-info">
-    <div class="useravatar"></div>
-    <!--<input class="First name" type="text" value="Rodrigo" disabled>-->
-    <!--<input class="Last name" type="text" value="Gonzalez" disabled>-->
-        <p>Rodrigo Gonzalez</p>
+    <div class="useravatar" ng-repeat="info in settingsInfo" style="background: url('{{info.avatar}}') no-repeat;background-size: 150px; height: 170px;"></div>
 
+        <p ng-repeat="info in settingsInfo">{{info.first_name}}</p>
+        <p ng-repeat="info in settingsInfo">{{info.last_name}}</p>
     </div>
     <div id="upd"></div>
 
     <form>
         <legend>General info</legend>
-
+        <p ng-repeat="info in settingsInfo">Username: {{info.username}}</p>
+        <p ng-repeat="info in settingsInfo">E-mail: {{info.email}}</p>
     </form>
 </div>
