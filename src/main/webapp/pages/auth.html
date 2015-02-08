@@ -1,3 +1,4 @@
+
 <div id="tabs" ng-controller="TabsCtrl">
     <ul>
         <li ng-repeat="tab in tabs"
@@ -7,18 +8,19 @@
     <div id="mainView">
         <div ng-include="currentTab"></div>
     </div>
+    <script type="text/ng-template" id="one.tpl.html">
+        <div id="viewOne">
+            <h3 class="modal-title">Sign in</h3>
+            <div ng-include="'/cactus/pages/sign_in.html'"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="two.tpl.html">
+        <div id="viewTwo">
+            <h3 class="modal-title">Sign up</h3>
+            <div ng-include="'/cactus/pages/sign_up.html'"></div>
+        </div>
+    </script>
 </div>
 
-<script type="text/ng-template" id="one.tpl.html">
-    <div id="viewOne">
-        <h3 class="modal-title">Sign in</h3>
-        <div ng-include="'/cactus/pages/sign_in.html'"></div>
-    </div>
-</script>
 
-<script type="text/ng-template" id="two.tpl.html">
-    <div id="viewTwo">
-        <h3 class="modal-title">Sign up</h3>
-        <div ng-include="'/cactus/pages/sign_up.html'"></div>
-    </div>
-</script>
+

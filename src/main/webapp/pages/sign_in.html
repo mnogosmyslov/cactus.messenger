@@ -1,23 +1,26 @@
 <div id="sign_in">
     <div class="modal-body">
-        <form novalidate class="css-form">
+        <form novalidate class="css-form" name="signin_form" ng-submit="postSignIn()">
+            <legend>{{hello.email}} {{hello.password}} {{hello.email.$valid}}</legend>
             <input
                     id="email"
                     type="email"
+                    name="email"
                     placeholder="E-mail"
-                    ng-model="user.email"
+                    ng-model="signin.email"
                     ng-model-options="{updateOn: 'blur'}"
                     required/>
             </br>
             <input
                     id="password"
                     type="password"
+                    name="password"
                     placeholder="Password"
-                    ng-model="user.password"
+                    ng-model="signin.password"
                     ng-model-options="{updateOn: 'blur'}"
                     required />
             </br>
-            <input type="button" id="sub-in" class="btn btn-primary" ng-click="check(user)" value="Submit" />
+            <input type="submit" id="sub-in" class="btn btn-primary" value="Submit" ng-disabled="signin_form.$invalid" />
         </form>
         </div>
     </div>

@@ -19,12 +19,10 @@
 
         };
 
-        $scope.master = {};
+    }).controller("Authorization", function($scope){
 
-        $scope.check = function(user) {
-            $scope.master = angular.copy(user);
-        };
-    }).controller("TabsCtrl", function($scope){
+    }).controller("TabsCtrl", function($scope, $http){
+        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
         $scope.tabs = [{
             title: 'Sign in',
             url: 'one.tpl.html'
@@ -36,46 +34,58 @@
 
         $scope.onClickTab = function (tab) {
             $scope.currentTab = tab.url;
-        }
+        };
 
         $scope.isActiveTab = function(tabUrl) {
             return tabUrl == $scope.currentTab;
-        }
-    }).directive('shakeThat', ['$animate', function($animate) {
-
-        return {
-            require: '^form',
-            scope: {
-                submit: '&',
-                submitted: '='
-            },
-            link: function(scope, element, attrs, form) {
-
-                // listen on submit event
-                element.on('submit', function() {
-
-                    // tell angular to update scope
-                    scope.$apply(function() {
-
-                        // everything ok -> call submit fn from controller
-                        if (form.$valid) return scope.submit();
-
-                        // show error messages on submit
-                        scope.submitted = true;
-
-                        // shake that form
-                        $animate.addClass(element, 'shake', function() {
-                            $animate.removeClass(element, 'shake');
-                        });
-
-                    });
-
-                });
-
-            }
         };
+        $scope.hello = {"email": "Boaz", "password" : "12345678"};
+        $scope.email = "";
+        $scope.password = "";
 
-    }]);
+        //$scope.postSignIn = function() {
+        //    var data = $.param({
+        //        json: JSON.stringify({
+        //            email: $scope.email,
+        //            password: $scope.password
+        //
+        //        })
+        //    });
+        //    $http.post("../pages/chats/", data).success(function(data, status) {
+        //        $scope.hello = data;
+        //    })
+        //};
+        $scope.postSignIn = function() {
+
+            $http({
+                url: '/getUserByLogin/{login}',
+                method: "POST",
+                data: {"email": $scope.email, "password": $scope.password}
+            })
+                .then(function (response) {
+                    $scope.hello = $http.data;
+                },
+                function (response) { // optional
+                    // failed
+                }
+            );
+        };
+        $scope.postSignUp = function() {
+
+            $http({
+                url: '/user/new',
+                method: "POST",
+                data: {"email": $scope.email, "password": $scope.password, "username": $scope.username}
+            })
+                .then(function (response) {
+                    $scope.hello = $http.data;
+                },
+                function (response) { // optional
+                    // failed
+                }
+            );
+        };
+    });
 
     angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
         $scope.close = function () {
