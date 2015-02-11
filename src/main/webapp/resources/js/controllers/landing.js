@@ -43,48 +43,61 @@
         $scope.email = "";
         $scope.password = "";
 
-        //$scope.postSignIn = function() {
-        //    var data = $.param({
-        //        json: JSON.stringify({
-        //            email: $scope.email,
-        //            password: $scope.password
-        //
-        //        })
-        //    });
-        //    $http.post("../pages/chats/", data).success(function(data, status) {
-        //        $scope.hello = data;
-        //    })
-        //};
         $scope.postSignIn = function() {
+            var data = $.param({
+                json: JSON.stringify({
+                    email: $scope.email,
+                    password: $scope.password
 
-            $http({
-                url: '/getUserByLogin/{login}',
-                method: "POST",
-                data: {"email": $scope.email, "password": $scope.password}
+                })
+            });
+            $http.post("/getUserByLogin/{login}", data).success(function(data, status) {
+                $scope.hello = data;
             })
-                .then(function (response) {
-                    $scope.hello = $http.data;
-                },
-                function (response) { // optional
-                    // failed
-                }
-            );
         };
         $scope.postSignUp = function() {
+            var data = $.param({
+                json: JSON.stringify({
+                    "email": $scope.email,
+                    "password": $scope.password,
+                    "username": $scope.username
 
-            $http({
-                url: '/user/new',
-                method: "POST",
-                data: {"email": $scope.email, "password": $scope.password, "username": $scope.username}
+                })
+            });
+            $http.post("/user/new", data).success(function(data, status) {
+                $scope.hello = data;
             })
-                .then(function (response) {
-                    $scope.hello = $http.data;
-                },
-                function (response) { // optional
-                    // failed
-                }
-            );
         };
+        //$scope.postSignIn = function() {
+        //
+        //    $http({
+        //        url: '/getUserByLogin/{login}',
+        //        method: "POST",
+        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password})
+        //    })
+        //        .then(function (response) {
+        //            $scope.hello = $http.data;
+        //        },
+        //        function (response) { // optional
+        //            // failed
+        //        }
+        //    );
+        //};
+        //$scope.postSignUp = function() {
+        //
+        //    $http({
+        //        url: '/user/new',
+        //        method: "POST",
+        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password, "username": $scope.username})
+        //    })
+        //        .then(function (response) {
+        //            $scope.hello = $http.data;
+        //        },
+        //        function (response) { // optional
+        //            // failed
+        //        }
+        //    );
+        //};
     });
 
     angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
