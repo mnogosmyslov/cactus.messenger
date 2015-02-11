@@ -22,7 +22,7 @@
     }).controller("Authorization", function($scope){
 
     }).controller("TabsCtrl", function($scope, $http){
-        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+        $http.defaults.headers.post["Content-Type"] = 'application/json; charset=utf-8';
         $scope.tabs = [{
             title: 'Sign in',
             url: 'one.tpl.html'
@@ -51,7 +51,7 @@
 
                 })
             });
-            $http.post("/getUserByLogin/{login}", data).success(function(data, status) {
+            $http.post("/server/getUserByLogin/{login}", data).success(function(data, status) {
                 $scope.hello = data;
             })
         };
@@ -64,7 +64,7 @@
 
                 })
             });
-            $http.post("/user/new", data).success(function(data, status) {
+            $http.post("/server/user/new", data).success(function(data, status) {
                 $scope.hello = data;
             })
         };
