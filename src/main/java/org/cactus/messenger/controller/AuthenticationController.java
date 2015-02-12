@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-@RequestMapping("/")
 public class AuthenticationController {
 
     @RequestMapping(value = "/sign_in", method = GET)
@@ -24,6 +23,7 @@ public class AuthenticationController {
     public String signupView() {
         return PageNames.SIGNUP;
     }
+
     @RequestMapping(value = "/chat", method = GET)
     public String messengerView() {
         return PageNames.MESSENGER;
