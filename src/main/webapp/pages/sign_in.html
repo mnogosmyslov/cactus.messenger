@@ -1,13 +1,14 @@
 <div id="sign_in">
     <div class="modal-body">
-        <form novalidate class="css-form" name="signin_form" ng-submit="postSignIn()">
+        <c:url value="/j_spring_security_check" var="loginUrl" />
+        <form novalidate class="css-form" action="${loginUrl}" method="post" name="signin_form" ng-submit="login()">
             <legend></legend>
             <input
                     id="email"
                     type="email"
                     name="email"
                     placeholder="E-mail"
-                    ng-model="signin.email"
+                    ng-model="credentials.email"
                     ng-model-options="{updateOn: 'blur'}"
                     required/>
             </br>
@@ -16,7 +17,7 @@
                     type="password"
                     name="password"
                     placeholder="Password"
-                    ng-model="signin.password"
+                    ng-model="credentials.password"
                     ng-model-options="{updateOn: 'blur'}"
                     required />
             </br>

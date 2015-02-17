@@ -19,10 +19,8 @@
 
         };
 
-    }).controller("Authorization", function($scope){
-
-    }).controller("TabsCtrl", function($scope, $http){
-        $http.defaults.headers.post["Content-Type"] = 'application/json; charset=utf-8';
+    }).controller("TabsCtrl", function($rootScope, $scope, $http, $location){
+        //$http.defaults.headers.post["Content-Type"] = 'application/json; charset=utf-8';
         $scope.tabs = [{
             title: 'Sign in',
             url: 'one.tpl.html'
@@ -39,64 +37,77 @@
         $scope.isActiveTab = function(tabUrl) {
             return tabUrl == $scope.currentTab;
         };
-        $scope.hello = {"email": "Boaz", "password" : "12345678"};
-        $scope.email = "";
-        $scope.password = "";
-
-        //$scope.postSignIn = function() {
-        //    var data = $.param({
-        //        json: JSON.stringify({
-        //            email: $scope.email,
-        //            password: $scope.password
+        //$scope.hello = {"email": "Boaz", "password" : "12345678"};
+        //$scope.email = "";
+        //$scope.password = "";
         //
-        //        })
-        //    });
-        //    $http.post("/server/getUserByLogin/{login}", data).success(function(data, status) {
-        //        $scope.hello = data;
+        //$scope.postSignIn = function() {
+        //
+        //    $http({
+        //        url: '/server/getUserByLogin/{login}',
+        //        method: "POST",
+        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password})
         //    })
+        //        .then(function (response) {
+        //            $scope.hello = $http.data;
+        //        },
+        //        function (response) { // optional
+        //            // failed
+        //        }
+        //    );
         //};
         //$scope.postSignUp = function() {
-        //    var data = $.param({
-        //        json: JSON.stringify({
-        //            "email": $scope.email,
-        //            "password": $scope.password,
-        //            "username": $scope.username
         //
-        //        })
-        //    });
-        //    $http.post("/server/user/new", data).success(function(data, status) {
-        //        $scope.hello = data;
+        //    $http({
+        //        url: '/server/user/new',
+        //        method: "POST",
+        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password, "username": $scope.username})
         //    })
+        //        .then(function (response) {
+        //            $scope.hello = $http.data;
+        //        },
+        //        function (response) { // optional
+        //            // failed
+        //        }
+        //    );
         //};
-        $scope.postSignIn = function() {
+        var authenticate = function(callback) {
 
-            $http({
-                url: '/server/getUserByLogin/{login}',
-                method: "POST",
-                data: JSON.stringify({"email": $scope.email, "password": $scope.password})
-            })
-                .then(function (response) {
-                    $scope.hello = $http.data;
-                },
-                function (response) { // optional
-                    // failed
+            $http.get('user').success(function(data) {
+                if (data.name) {
+                    $rootScope.authenticated = true;
+                } else {
+                    $rootScope.authenticated = false;
                 }
-            );
+                callback && callback();
+            }).error(function() {
+                $rootScope.authenticated = false;
+                callback && callback();
+            });
+
         };
-        $scope.postSignUp = function() {
-
-            $http({
-                url: '/server/user/new',
-                method: "POST",
-                data: JSON.stringify({"email": $scope.email, "password": $scope.password, "username": $scope.username})
-            })
-                .then(function (response) {
-                    $scope.hello = $http.data;
-                },
-                function (response) { // optional
-                    // failed
+        authenticate();
+        $scope.credentials = {};
+        $scope.login = function() {
+            $http.post('login', $.param($scope.credentials), {
+                headers : {
+                    "content-type" : "application/x-www-form-urlencoded"
                 }
-            );
+            }).success(function(data) {
+                authenticate(function() {
+                    if ($rootScope.authenticated) {
+                        $location.path("/");
+                        $scope.error = false;
+                    } else {
+                        $location.path("/login");
+                        $scope.error = true;
+                    }
+                });
+            }).error(function(data) {
+                $location.path("/login");
+                $scope.error = true;
+                $rootScope.authenticated = false;
+            })
         };
     });
 
@@ -110,11 +121,6 @@
  * class helper functions
  * from bonzo https://github.com/ded/bonzo
  * MIT license
- *
- * classie.has( elem, 'my-class' ) -> true/false
- * classie.add( elem, 'my-new-class' )
- * classie.remove( elem, 'my-unwanted-class' )
- * classie.toggle( elem, 'my-class' )
  */
 
 ( function( window ) {
