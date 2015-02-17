@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/" + PageNames.SIGNIN + "?error")
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
-                .defaultSuccessUrl("/" + PageNames.PROFILE) //TODO: edit to messenger page
+                .defaultSuccessUrl("/" + PageNames.MESSENGER)
                 .permitAll();
 
         http.logout()

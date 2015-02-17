@@ -7,16 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
-public class AuthenticationController {
+@RequestMapping("/chat")
+public class ChatController {
 
-    @RequestMapping(value = "/sign_in", method = GET)
-    public String signinView() {
-        return PageNames.SIGNIN;
-    }
-
-    @RequestMapping(value = "/sign_up", method = GET)
-    public String signupView() {
-        return PageNames.SIGNUP;
+    @RequestMapping(value = "/", method = GET)
+    public String messengerView() {
+        return PageNames.MESSENGER;
     }
 
 }

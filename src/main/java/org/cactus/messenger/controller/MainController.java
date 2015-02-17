@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 @Controller
 @RequestMapping("/")
 public class MainController {
@@ -24,5 +26,10 @@ public class MainController {
         HashMap<String, String> hash = new HashMap<String, String>();
         hash.put("msg", "welcome to spring angular js");
         return String.valueOf(hash);
+    }
+
+    @RequestMapping(value = "/profile", method = GET)
+    public String profileView() {
+        return PageNames.PROFILE;
     }
 }
