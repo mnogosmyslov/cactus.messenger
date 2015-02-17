@@ -1,15 +1,16 @@
 <div id="sign_in">
     <div class="modal-body">
         <c:url value="/j_spring_security_check" var="loginUrl" />
-        <form novalidate class="css-form" action="${loginUrl}" method="post" name="signin_form" ng-submit="login()">
+        <form role="form" novalidate class="css-form"  method="post" th:action="@{/j_spring_security_check}" name="signin_form" ng-submit="login()">
             <legend></legend>
             <input
                     id="email"
                     type="email"
-                    name="email"
+                    name="username"
                     placeholder="E-mail"
-                    ng-model="credentials.email"
+                    ng-model="username"
                     ng-model-options="{updateOn: 'blur'}"
+                    autofocus
                     required/>
             </br>
             <input
@@ -17,11 +18,11 @@
                     type="password"
                     name="password"
                     placeholder="Password"
-                    ng-model="credentials.password"
+                    ng-model="password"
                     ng-model-options="{updateOn: 'blur'}"
                     required />
             </br>
-            <input type="submit" id="sub-in" class="btn btn-primary" value="Submit" ng-disabled="signin_form.$invalid" />
+            <input type="submit" id="sub-in" class="btn btn-primary" value="Submit" th:text="#{auth.signin.btn}" ng-disabled="signin_form.$invalid" />
         </form>
         </div>
     </div>

@@ -37,77 +37,20 @@
         $scope.isActiveTab = function(tabUrl) {
             return tabUrl == $scope.currentTab;
         };
-        //$scope.hello = {"email": "Boaz", "password" : "12345678"};
-        //$scope.email = "";
-        //$scope.password = "";
-        //
-        //$scope.postSignIn = function() {
-        //
-        //    $http({
-        //        url: '/server/getUserByLogin/{login}',
-        //        method: "POST",
-        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password})
-        //    })
-        //        .then(function (response) {
-        //            $scope.hello = $http.data;
-        //        },
-        //        function (response) { // optional
-        //            // failed
-        //        }
-        //    );
-        //};
-        //$scope.postSignUp = function() {
-        //
-        //    $http({
-        //        url: '/server/user/new',
-        //        method: "POST",
-        //        data: JSON.stringify({"email": $scope.email, "password": $scope.password, "username": $scope.username})
-        //    })
-        //        .then(function (response) {
-        //            $scope.hello = $http.data;
-        //        },
-        //        function (response) { // optional
-        //            // failed
-        //        }
-        //    );
-        //};
-        var authenticate = function(callback) {
-
-            $http.get('user').success(function(data) {
-                if (data.name) {
-                    $rootScope.authenticated = true;
-                } else {
-                    $rootScope.authenticated = false;
+        $scope.login = function(){
+            var data = "j_username="+$scope.username+"&j_password="+$scope.password+"&submit=Login";
+            $http.post('j_spring_security_check', data, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
                 }
-                callback && callback();
-            }).error(function() {
-                $rootScope.authenticated = false;
-                callback && callback();
-            });
-
-        };
-        authenticate();
-        $scope.credentials = {};
-        $scope.login = function() {
-            $http.post('login', $.param($scope.credentials), {
-                headers : {
-                    "content-type" : "application/x-www-form-urlencoded"
-                }
-            }).success(function(data) {
-                authenticate(function() {
-                    if ($rootScope.authenticated) {
-                        $location.path("/");
-                        $scope.error = false;
-                    } else {
-                        $location.path("/login");
-                        $scope.error = true;
-                    }
+            }).
+                success(function(data, status, headers, config) {
+                    console.info("You're now logged in, welcome "+$scope.username);
+                }).
+                error(function(data, status, headers, config){
+                    console.warn('This is a wrong username or/and a wrong password. Try again');
+                    setTimeout(function(){jQuery('#loginAlert').hide();},4000);
                 });
-            }).error(function(data) {
-                $location.path("/login");
-                $scope.error = true;
-                $rootScope.authenticated = false;
-            })
         };
     });
 
