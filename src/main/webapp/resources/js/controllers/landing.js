@@ -3,62 +3,29 @@
  */
 
     angular.module('LandApp', ['ui.bootstrap', "ui.router", "ngAnimate"]);
-    angular.module('LandApp').controller('ModalCtrl',function ($scope, $modal) {
-
-        $scope.open = function (size) {
-
-            var modalInstance = $modal.open({
-                templateUrl: 'myModal.html',
-                controller: 'ModalInstanceCtrl',
-                size: size,
-                resolve: { },
-                backdrop: true,
-                backdropClass: 'backdrop',
-                windowClass: 'fuckshadows'
-            });
-
-        };
-
-    }).controller("TabsCtrl", function($rootScope, $scope, $http, $location){
-        //$http.defaults.headers.post["Content-Type"] = 'application/json; charset=utf-8';
-        $scope.tabs = [{
-            title: 'Sign in',
-            url: 'one.tpl.html'
-        }, {
-            title: 'Sign up',
-            url: 'two.tpl.html'
-        }];
-        $scope.currentTab = 'one.tpl.html';
-
-        $scope.onClickTab = function (tab) {
-            $scope.currentTab = tab.url;
-        };
-
-        $scope.isActiveTab = function(tabUrl) {
-            return tabUrl == $scope.currentTab;
-        };
-        $scope.login = function(){
-            var data = "j_username="+$scope.username+"&j_password="+$scope.password+"&submit=Login";
-            $http.post('j_spring_security_check', data, {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                }
-            }).
-                success(function(data, status, headers, config) {
-                    console.info("You're now logged in, welcome "+$scope.username);
-                }).
-                error(function(data, status, headers, config){
-                    console.warn('This is a wrong username or/and a wrong password. Try again');
-                    setTimeout(function(){jQuery('#loginAlert').hide();},4000);
-                });
-        };
-    });
-
-    angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-        $scope.close = function () {
-            $modalInstance.close();
-        };
-    });
+    //angular.module('LandApp').controller('ModalCtrl',function ($scope, $modal) {
+    //
+    //    $scope.open = function (size) {
+    //
+    //        var modalInstance = $modal.open({
+    //            templateUrl: 'myModal.html',
+    //            controller: 'ModalInstanceCtrl',
+    //            size: size,
+    //            resolve: { },
+    //            backdrop: true,
+    //            backdropClass: 'backdrop',
+    //            windowClass: 'fuckshadows'
+    //        });
+    //
+    //    };
+    //
+    //}).
+    //
+    //angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+    //    $scope.close = function () {
+    //        $modalInstance.close();
+    //    };
+    //});
 /*!
  * classie v1.0.1
  * class helper functions
