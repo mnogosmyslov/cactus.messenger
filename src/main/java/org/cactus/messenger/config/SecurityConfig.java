@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,12 +14,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @PropertySource("classpath:org/cactus/messenger/security.properties")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private Environment environment;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -32,28 +38,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/resources/**", "/**").permitAll()
-                .anyRequest().permitAll()
-                .and();
+        http
+                .csrf().disable().authorizeRequests()
+                    .antMatchers("/resources/**", "/**").permitAll()
+                    .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .loginProcessingUrl("/j_spring_security_check")
+                    .failureUrl("/login?error")
+                    .usernameParameter("j_username")
+                    .passwordParameter("j_password")
+                    .defaultSuccessUrl("/" + PageNames.MESSENGER)
+                    .permitAll()
+                .and()
+                .logout()
+                    .logoutUrl("/logout")
+                .deleteCookies(environment.getProperty("app.cookieName"));
+//                TODO: cookie impl
+//                .and()
+//                .rememberMe()
+//                    .rememberMeServices(rememberMeServices())
+//                    .key(environment.getProperty("app.key"));
+    }
 
-        http.formLogin()
-                .loginPage("/" + PageNames.SIGNIN)
-                .loginProcessingUrl("/j_spring_security_check")
-                .failureUrl("/" + PageNames.SIGNIN + "?error")
-                .usernameParameter("j_username")
-                .passwordParameter("j_password")
-                .defaultSuccessUrl("/" + PageNames.MESSENGER)
-                .permitAll();
-
-        http.logout()
-                .permitAll()
-                .logoutUrl("/" + PageNames.SIGNOUT)
-                .logoutSuccessUrl("/" + PageNames.SIGNOUT + "?signout")
-                        .invalidateHttpSession(true);
-
+    @Bean
+    public RememberMeServices rememberMeServices(){
+        TokenBasedRememberMeServices rememberMeServices =
+                new TokenBasedRememberMeServices(environment.getProperty("app.key"), userDetailsService);
+        rememberMeServices.setCookieName(environment.getProperty("app.cookieName"));
+        rememberMeServices.setParameter("rememberMe");
+        rememberMeServices.setAlwaysRemember(true);
+        return rememberMeServices;
     }
 
     @Bean

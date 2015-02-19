@@ -1,6 +1,9 @@
 package org.cactus.messenger.config;
 
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -22,6 +25,13 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[] {
+                new DelegatingFilterProxy("springSecurityFilterChain")
+        };
     }
 
     @Override

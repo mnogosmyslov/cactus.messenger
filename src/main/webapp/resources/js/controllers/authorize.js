@@ -23,7 +23,7 @@ angular.module('LandApp').controller("TabsCtrl", function($rootScope, $scope, $h
     //};
     $scope.login = function(){
         var data = "j_username="+$scope.username+"&j_password="+$scope.password+"&submit=Login";
-        $http.post('../j_spring_security_check', data, {
+        $http.post('/j_spring_security_check', data, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }

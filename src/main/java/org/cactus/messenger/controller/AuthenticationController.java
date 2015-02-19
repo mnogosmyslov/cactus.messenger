@@ -19,4 +19,9 @@ public class AuthenticationController {
         return PageNames.SIGNUP;
     }
 
+    @RequestMapping(value = "/login", method = GET)
+    public String loginView() {
+        return "login";
+    }
+
 }
