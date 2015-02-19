@@ -41,7 +41,7 @@
             <div class="contacts-content">
                 <form>
                     <legend>Contacts <a href="#" ng-click="add_cont = !add_cont" ng-class="{ active: add_cont }">Add contact</a></legend>
-                    <input ng-model="searchText">
+                    <input ng-model="searchText" />
                 </form>
 
                 <div>
@@ -55,10 +55,10 @@
             <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
         </div>
     </div>
-    </div>
+
     <div ng-controller="ChatApi">
         <aside id="chatlist" style="overflow-y: scroll">
-            <input ng-model="searchText">
+            <input ng-model="searchText" />
             <div>
                 <ul>
                     <li ng-repeat="chat in chats | filter:searchText"
@@ -102,6 +102,6 @@
 
     <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
     <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
-    <script th:src="@{/resources/js/controllers/landing.js}" src="../resources/js/controllers/chat.js"></script>
+    <script th:src="@{/resources/js/controllers/chat.js}" src="../resources/js/controllers/chat.js"></script>
 </body>
 </html>
