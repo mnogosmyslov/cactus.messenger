@@ -41,7 +41,7 @@
             <div class="contacts-content">
                 <form>
                     <legend>Contacts <a href="#" ng-click="add_cont = !add_cont" ng-class="{ active: add_cont }">Add contact</a></legend>
-                    <input ng-model="searchText">
+                    <input ng-model="searchText" />
                 </form>
 
                 <div>
@@ -55,10 +55,10 @@
             <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
         </div>
     </div>
-    </div>
+
     <div ng-controller="ChatApi">
         <aside id="chatlist" style="overflow-y: scroll">
-            <input ng-model="searchText">
+            <input ng-model="searchText" />
             <div>
                 <ul>
                     <li ng-repeat="chat in chats | filter:searchText"
@@ -71,6 +71,26 @@
         <main>
             <div id="chatPreView">
                 <div ng-include="currentChat"></div>
+            </div>
+            <div id="browser-window" ng-controller="NgChatCtrl">
+                <div id="viewport">
+                    <div id="viewport-content">
+                        <div class="bubble-container" ng-repeat="m in messages">
+                            <div class="bubble bubble-{{m.side}}">{{m.text}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="row row-chat" ng-submit="sendMessage()">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="messageText" placeholder="Type your message" />
+
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </span>
+                    </div>
+
+                </form>
             </div>
         </main>
 
@@ -90,8 +110,6 @@
         <script type="text/ng-template" id="wenk-wenk.tpl.html">
             <div ng-include="'/cactus/pages/chats/wenk-wenk.html'"></div>
         </script>
-
-
     </div>
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
@@ -100,8 +118,9 @@
     <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
+    <script th:src="@{/resources/js/spike-sdk.js.src.js}" src="../resources/js/spike-sdk.js.src.js"></script>
     <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
     <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
-    <script th:src="@{/resources/js/controllers/landing.js}" src="../resources/js/controllers/chat.js"></script>
+    <script th:src="@{/resources/js/controllers/chat.js}" src="../resources/js/controllers/chat.js"></script>
 </body>
 </html>

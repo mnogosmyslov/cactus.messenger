@@ -21,12 +21,12 @@
 
     }).controller("ShowInfo", function($scope, $http){
 
-     $http.get("../pages/chats/settings.json")
+     $http.get("../cactus/pages/chats/settings.json")
             .success(function(response) {$scope.settingsInfo = response;});
 
     }).controller("HeaderContacts", function($scope, $http){
 
-        $http.get("../pages/chats/contacts.json")
+        $http.get("../cactus/pages/chats/contacts.json")
             .success(function(response) {$scope.contactLists = response;});
         $scope.onClickContact = function (tab) {
             $scope.currentContact = tab.url;
@@ -39,7 +39,7 @@
 
     }).controller("ChatApi", function($scope, $http){
 
-        $http.get("../pages/chats/chatlist.json")
+        $http.get("../cactus/pages/chats/chatlist.json")
             .success(function(response) {$scope.chats= response;});
 
         $scope.currentChat = 'force_gripper.tpl.html';

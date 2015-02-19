@@ -50,10 +50,11 @@ angular.module('LandApp').controller("TabsCtrl", function($rootScope, $scope, $h
         //        console.warn('This is a wrong username or/and a wrong password. Try again');
         //        setTimeout(function(){jQuery('#loginAlert').hide();},4000);
         //    });
+        var mydata = JSON.stringify({"email": $scope.email, username: $scope.username, password: $scope.password})
         $http({
             method: 'POST',
             url: '/cactus/user/new',
-            data: JSON.stringify({"email": $scope.email, username: $scope.username, password: $scope.password}),
+            data: mydata,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             success: (function(data, status, headers, config) {
                 console.info("You're now logged in, welcome "+$scope.username);
