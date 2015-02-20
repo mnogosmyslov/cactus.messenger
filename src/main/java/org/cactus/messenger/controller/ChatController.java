@@ -10,7 +10,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/chat")
 public class ChatController {
 
-    @RequestMapping(value = "/", method = GET)
+    @RequestMapping(method = GET)
     public String messengerView() {
         return PageNames.MESSENGER;
     }

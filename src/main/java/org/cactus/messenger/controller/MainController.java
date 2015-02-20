@@ -32,8 +32,4 @@ public class MainController {
     public String profileView() {
         return PageNames.PROFILE;
     }
-    @RequestMapping(value = "/chat", method = GET)
-    public String chatView() {
-        return PageNames.MESSENGER;
-    }
 }
