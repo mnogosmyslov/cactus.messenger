@@ -37,12 +37,11 @@ angular.module('LandApp').controller("TabsCtrl", function($rootScope, $scope, $h
     //        });
     //};
     $scope.postSignUp = function(){
-        var mydata = JSON.stringify({"email": $scope.email, username: $scope.username, password: $scope.password});
+        var mydata = {"email": $scope.email, username: $scope.username, password: $scope.password};
         $http({
             method: 'POST',
             url: '/cactus/user/new',
             data: mydata,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             success: (function(data, status, headers, config) {
                 console.info("You're now logged in, welcome "+$scope.username);
             }),
