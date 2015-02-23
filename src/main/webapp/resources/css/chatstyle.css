@@ -29,12 +29,12 @@ header {
     top: 0;
 }
 header input {
-    margin: 7px 5px;
+    margin: 0 5px;
     background: none;
     border: none;
     color: #fff;
-    padding: 10px 20px;
-    font: lighter 10pt Arial;
+    padding: 23px 20px 15px 20px;
+    font: lighter 13pt Arial;
 }
 header input:hover {
     background: #71a9bd;
@@ -43,12 +43,12 @@ header div {
     float: left;
 }
 aside {
-    margin-top: 83px;
+    margin-top: 70px;
     position: absolute;
     width: 20%;
     border-right: solid 3px #cad4d6;
     float: left;
-    height: calc(100% - 83px);
+    height: calc(100% - 70px);
     top: 0;
     transition: 0.3s ease-in-out;
     opacity: 1;
@@ -59,9 +59,9 @@ aside input {
     margin: 0 auto 20px 20px;
 }
 main{
-    margin-top: 80px;
+    margin-top: 70px;
     position: absolute;
-    width: 77%;
+    width: 80%;
     right: 0;
     float: right;
     height: calc(100% - 83px);
@@ -73,11 +73,17 @@ main div{
     width: 100%;
     height: 100%;
 }
+.new_message {
+    position: fixed;
+    width: 80%;
+    bottom: 0;
+    margin-left: 0;
+}
 #logo{
-    background-size: 90%;
+    background-size: 100%;
     opacity: 1;
     padding: 0;
-    height: 54px;
+    height: 70px;
 }
 ul {
     list-style: none;

@@ -1,10 +1,10 @@
 #logo {
     position: relative;
-    background: url(../img/cactusfont.png) no-repeat;
-    background-size: 170px;
-    margin: 10px 0 0 20px;
+    background: url(../img/hoody.png) no-repeat;
+    background-position-y: -40px;
+    margin: 0 0 0 20px;
     height: 60px;
-    width: 170px;
+    width: 80px;
     z-index: 901;
     left: 0;
     float: left;

@@ -26,7 +26,7 @@
     </script>
     <div ng-controller="HeaderContacts">
     <header class="greenheader">
-        <a id="logo" href="/cactus/pages/index.html"></a>
+        <a id="logo" href="/cactus/"></a>
         <div ng-controller="HeaderSettings">
             <div class="settings">
                 <input id="user-settings" type="button" value="Settings" ng-click="open()"/>
@@ -72,26 +72,7 @@
             <div id="chatPreView">
                 <div ng-include="currentChat"></div>
             </div>
-            <div id="browser-window" ng-controller="NgChatCtrl">
-                <div id="viewport">
-                    <div id="viewport-content">
-                        <div class="bubble-container" ng-repeat="m in messages">
-                            <div class="bubble bubble-{{m.side}}">{{m.text}}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="row row-chat" ng-submit="sendMessage()">
-                    <div class="input-group">
-                        <input type="text" class="form-control" ng-model="messageText" placeholder="Type your message" />
-
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </span>
-                    </div>
-
-                </form>
-            </div>
+            <input type="text" class="new_message" />
         </main>
 
         <script type="text/ng-template" id="force_gripper.tpl.html">
@@ -118,7 +99,6 @@
     <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
-    <script th:src="@{/resources/js/spike-sdk.js.src.js}" src="../resources/js/spike-sdk.js.src.js"></script>
     <script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
     <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
     <script th:src="@{/resources/js/controllers/chat.js}" src="../resources/js/controllers/chat.js"></script>

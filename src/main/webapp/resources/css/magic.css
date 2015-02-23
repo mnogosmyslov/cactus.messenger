@@ -84,9 +84,10 @@ body{
     font-size: 1.75em;
 }
 .letters {
-    background-image: url(../img/cactusfont.png);
-    width: 722px;
-    height: 324px;
+    background: url(../img/hoody.png) no-repeat;
+    background-position-y: -400px;
+    width: 350px;
+    height: 600px;
     margin: auto;
     background-size: 100%;
     z-index: 3;
