@@ -22,7 +22,7 @@ public class ChatController {
     }
 
     @MessageMapping("/chat")
-    @SendTo("/topic")
+    @SendTo("/conversation")
     public OutputMessageVO sendMessage(MessageVO messageVO) {
         return new OutputMessageVO(messageVO, new Date());
     }
