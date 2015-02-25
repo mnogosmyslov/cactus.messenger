@@ -1,7 +1,10 @@
 /**
  * Created by Airofsummer on 30.01.2015.
  */
-    angular.module('ChatApp', ['ui.bootstrap', "ui.router", "ngAnimate"]);
+    angular.module('ChatApp', [
+        "ui.bootstrap",
+        "ui.router",
+        "ngAnimate"]);
 
     angular.module('ChatApp').controller('HeaderSettings', function ($scope, $modal, $http) {
 
@@ -16,8 +19,6 @@
             });
 
         };
-
-
 
     }).controller("ShowInfo", function($scope, $http){
 
@@ -37,7 +38,25 @@
         $scope.contacts = false;
         $scope.add_cont = false;
 
-    }).controller("ChatApi", function($scope, $http){
+    });//.controller("ChatApi", function($scope, $http){
+    //
+    //    $http.get("../cactus/pages/chats/chatlist.json")
+    //        .success(function(response) {$scope.chats= response;});
+    //
+    //    $scope.currentChat = 'force_gripper.tpl.html';
+    //    $scope.onClickChat = function (tab) {
+    //        $scope.currentChat = tab.url;
+    //    };
+    //    $scope.isActiveChat = function(chatUrl) {
+    //        return chatUrl == $scope.currentChat;
+    //    };
+    //
+    //});
+
+angular.module("ChatApp").controller("ChatApi", function($scope, $http, ChatService) {
+    $scope.messages = [];
+    $scope.message = "";
+    $scope.max = 140;
 
         $http.get("../cactus/pages/chats/chatlist.json")
             .success(function(response) {$scope.chats= response;});
@@ -50,7 +69,15 @@
             return chatUrl == $scope.currentChat;
         };
 
+    $scope.addMessage = function() {
+        ChatService.send($scope.message);
+        $scope.message = "";
+    };
+
+    ChatService.receive().then(null, null, function(message) {
+        $scope.messages.push(message);
     });
+});
 
 var expectFriendNames = function(expectedNames, key) {
     element.all(by.repeater(key + ' in chats').column(key + '.title')).then(function(arr) {

@@ -21,7 +21,7 @@ body {
     height: 100%;
 }
 header {
-    background-color: #a0cede;
+    background-color: #3c7a89;
     position: absolute;
     z-index: 10000;
     height: 70px;
@@ -37,7 +37,7 @@ header input {
     font: lighter 13pt Arial;
 }
 header input:hover {
-    background: #71a9bd;
+    background: #163644;
 }
 header div {
     float: left;
@@ -55,8 +55,8 @@ aside {
 }
 aside input {
     position: relative;
-    width: 80%;
-    margin: 0 auto 20px 20px;
+    width: calc(100% - 20px - 10px);
+    margin: 20px auto 20px 20px;
 }
 main{
     margin-top: 70px;
@@ -78,7 +78,27 @@ main div{
     width: 80%;
     bottom: 0;
     margin-left: 0;
+    height: 30px;
+    padding: 5px 0;
 }
+.info {
+    max-width: 100px;
+    max-height: 20px;
+    position: fixed;
+    right: 0;
+    bottom: 5px;
+}
+.info button {
+    background: none;
+    padding: 0;
+    outline: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #f91d25;
+}
+
 #logo{
     background-size: 100%;
     opacity: 1;
