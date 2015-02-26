@@ -32,7 +32,6 @@ public class UserController {
     }
 
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
-//	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public String createUser(@RequestBody UserAccountVO userAccountVO, BindingResult bindingResult) throws SQLException {
 		Assert.notNull(userAccountVO);
 		if (bindingResult.hasErrors()) {
