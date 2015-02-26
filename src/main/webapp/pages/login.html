@@ -10,8 +10,7 @@
     <meta name = "robots" content = "" />
 
     <link th:href="@{/resources/css/bootstrap.css}" href="../resources/css/bootstrap.css" rel="stylesheet" />
-    <link th:href="@{/resources/css/magic.css}" href="../resources/css/magic.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/resources/css/authorize.css}" href="../resources/css/authorize.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 </head>
@@ -19,7 +18,7 @@
 <body ng-app="LandApp" class="demo-3">
 
 <div id="tabs" ng-controller="TabsCtrl">
-    Sign in
+    <h3>Sign in</h3>
     <div id="sign_in">
         <form role="form" class="css-form" method="post" th:action="@{/j_spring_security_check}" name="signin_form" novalidate="">
             <legend></legend>
@@ -38,7 +37,6 @@
                     placeholder="Password"
                     ng-model="password"
                     required="" />
-
             <input type="submit" id="sub-in" class="btn btn-primary" value="Submit" ng-disabled="signin_form.$invalid" />
             Have no account? <a href="sign_up" style="color: #31b0d5;">Sign up for free</a>
         </form>
@@ -52,7 +50,6 @@
 <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
-<script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
 <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
 <script th:src="@{/resources/js/controllers/authorize.js}" src="../resources/js/controllers/authorize.js"></script>
 

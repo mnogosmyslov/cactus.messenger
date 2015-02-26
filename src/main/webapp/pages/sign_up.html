@@ -10,8 +10,7 @@
     <meta name = "robots" content = "" />
 
     <link th:href="@{/resources/css/bootstrap.css}" href="../resources/css/bootstrap.css" rel="stylesheet" />
-    <link th:href="@{/resources/css/magic.css}" href="../resources/css/magic.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/resources/css/authorize.css}" href="../resources/css/authorize.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 </head>
@@ -35,8 +34,9 @@
         <!--</div>-->
     <!--</script>-->
     <div id="sign_up">
-        <div class="modal-body">
+        <h3>Sign up</h3>
             <form novalidate="" class="css-form" ng-submit="postSignUp()" name="signup_form">
+                <hr/>
                 <input
                         id="email"
                         type="email"
@@ -65,8 +65,8 @@
                         required="" />
 
                 <input type="submit" id="sub-in" class="btn btn-primary" value="Submit" ng-disabled="signup_form.$invalid" />
+                Already have the Hoody? <a href="login" style="color: #31b0d5;">Sign in, dear</a>
             </form>
-        </div>
     </div>
 </div>
 
@@ -77,7 +77,6 @@
 <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
-<script th:src="@{/resources/js/controllers/controller.js}" src="../resources/js/controllers/controller.js"></script>
 <script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
 <script th:src="@{/resources/js/controllers/authorize.js}" src="../resources/js/controllers/authorize.js"></script>
 
