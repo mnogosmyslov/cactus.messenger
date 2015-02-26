@@ -59,9 +59,8 @@ angular.module("ChatApp").controller("ChatApi", function($scope, $http, ChatServ
     $scope.max = 140;
 
         $http.get("../cactus/pages/chats/chatlist.json")
-            .success(function(response) {$scope.chats= response;});
+            .success(function(response) {$scope.chats = response; $scope.currentChat = $scope.chats[0].url;});
 
-        $scope.currentChat = 'force_gripper.tpl.html';
         $scope.onClickChat = function (tab) {
             $scope.currentChat = tab.url;
         };

@@ -8,7 +8,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
     service.RECONNECT_TIMEOUT = 30000;
     service.SOCKET_URL = "/cactus/chat";
     service.CHAT_TOPIC = "/conversation";
-    service.CHAT_BROKER = "/app/chat";
+    service.CHAT_BROKER = "/messenger/chat";
 
     service.receive = function() {
         return listener.promise;

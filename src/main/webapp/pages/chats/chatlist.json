@@ -1,15 +1,20 @@
 [{"title" : "Dark Daddy",
-"url" : "force_gripper.tpl.html"
+"url" : "force_gripper.tpl.html",
+"href" : "../cactus/pages/chats/force_gripper.html"
 }, {
 "title" : "policebox",
-"url" : "policebox.tpl.html"
+"url" : "policebox.tpl.html",
+"href" : "../cactus/pages/chats/policebox.html"
 }, {
 "title" : "sauron",
-"url":  "sauron.tpl.html"
+"url":  "sauron.tpl.html",
+"href" : "../cactus/pages/chats/sauron.html"
 }, {
 "title": "Albus Percival Wulfric Brian Dumbledore",
-"url": "albus.tpl.html"
+"url": "albus.tpl.html",
+"href" : "../cactus/pages/chats/albus.html"
 }, {
 "title": "Wenk Wenk",
-"url": "wenk-wenk.tpl.html"
+"url": "wenk-wenk.tpl.html",
+"href" : "../cactus/pages/chats/wenk-wenk.html"
 }]

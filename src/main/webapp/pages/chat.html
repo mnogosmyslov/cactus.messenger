@@ -24,6 +24,7 @@
     <script type="text/ng-template" id="contactsModal.html">
         <div ng-include="'/cactus/pages/contacts.html'"></div>
     </script>
+
     <div ng-controller="HeaderContacts">
     <header class="greenheader">
         <a id="logo" href="/cactus/"></a>
@@ -57,6 +58,7 @@
     </div>
 
     <div ng-controller="ChatApi">
+
         <aside id="chatlist" style="overflow-y: scroll">
             <input ng-model="searchText" />
             <div>
@@ -71,26 +73,34 @@
         <main>
             <div id="chatPreView">
                 <div ng-include="currentChat"></div>
+                <div class="messages">
+                <p ng-repeat="message in messages | orderBy:'time':true" class="message">
+                <time>{{message.time | date:'HH:mm'}}</time>
+                <span ng-class="{self: message.self}">{{message.message}}</span>
+                </p>
+                </div>
             </div>
             <form ng-submit="addMessage()" name="messageForm">
-                <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" />
+                <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" ng-model-options="{updateOn: blur}"/>
                 <div class="info">
                     <span class="count" ng-bind="max - message.length" ng-class="{danger: message.length > max}">140</span>
                     <button ng-disabled="message.length > max || message.length === 0">Send</button>
                 </div>
             </form>
-            <p ng-repeat="message in messages | orderBy:'time':true" class="message">
-                <time>{{message.time | date:'HH:mm'}}</time>
-                <span ng-class="{self: message.self}">{{message.message}}</span>
-            </p>
-        </main>
 
+        </main>
+        <!--<div ng-repeat="chatter in chats">-->
+            <!--<script type="text/ng-template" id="{{chatter.url}}">-->
+                <!--<div ng-include="chatter.href"></div>-->
+            <!--</script>-->
+        <!--</div>-->
         <script type="text/ng-template" id="force_gripper.tpl.html">
             <div ng-include="'/cactus/pages/chats/force_gripper.html'"></div>
         </script>
 
         <script type="text/ng-template" id="policebox.tpl.html">
             <div ng-include="'/cactus/pages/chats/policebox.html'"></div>
+
         </script>
         <script type="text/ng-template" id="albus.tpl.html">
             <div ng-include="'/cactus/pages/chats/albus.html'"></div>
