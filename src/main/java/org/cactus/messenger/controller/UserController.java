@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -32,14 +31,10 @@ public class UserController {
     }
 
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
-	public String createUser(@RequestBody UserAccountVO userAccountVO, BindingResult bindingResult) throws SQLException {
+	public String createUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
 		Assert.notNull(userAccountVO);
-		if (bindingResult.hasErrors()) {
-			return PageNames.SIGNUP;
-		} else {
-			userAccountService.createUserAccount(userAccountVO);
-			return PageNames.INDEX;
-		}
+		userAccountService.createUserAccount(userAccountVO);
+		return PageNames.INDEX;
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT,

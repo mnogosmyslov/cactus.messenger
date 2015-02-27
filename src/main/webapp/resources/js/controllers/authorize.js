@@ -37,7 +37,7 @@ angular.module('LandApp').controller("TabsCtrl", function($rootScope, $scope, $h
     //        });
     //};
     $scope.postSignUp = function(){
-        var mydata = {"email": $scope.email, username: $scope.username, password: $scope.password};
+        var mydata = {"email": $scope.email, "login": $scope.username, "password": $scope.password};
         $http({
             method: 'POST',
             url: '/cactus/user/new',
