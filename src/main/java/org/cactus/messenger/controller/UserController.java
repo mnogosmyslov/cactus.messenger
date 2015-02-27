@@ -40,9 +40,9 @@ public class UserController {
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT,
 			headers = "Content-Type=application/json")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public UserAccountVO updateUser(@RequestBody UserAccountVO userAccountVO) {
+	public void updateUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
 		Assert.notNull(userAccountVO);
-		return userAccountService.updateUserAccount(userAccountVO);
+		userAccountService.updateUserAccount(userAccountVO);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -58,7 +58,7 @@ public class UserController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deleteUser(@PathVariable long id) {
+	public void deleteUser(@PathVariable long id) throws SQLException {
 		Assert.notNull(id);
 		userAccountService.deleteUserAccount(id);
 	}
