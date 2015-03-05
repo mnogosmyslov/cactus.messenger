@@ -1,0 +1,15 @@
+<div class="contacts-content">
+    <form>
+        <legend>Contacts <a href="#" ng-click="add_cont = !add_cont" ng-class="{ active: add_cont }">Add contact</a></legend>
+        <input ng-model="searchText" />
+    </form>
+
+    <div>
+        <ul>
+            <li ng-repeat="contact in contactLists | filter:searchText"
+                ng-class="{active:isActiveChat(contact.url)}"
+                ng-click="onClickChat(contact)">{{contact.title}}</li>
+        </ul>
+    </div>
+</div>
+
