@@ -2,30 +2,8 @@
  * Created by Airofsummer on 14.01.2015.
  */
 
-    angular.module('LandApp', ['ui.bootstrap', "ui.router", "ngAnimate"]);
-    //angular.module('LandApp').controller('ModalCtrl',function ($scope, $modal) {
-    //
-    //    $scope.open = function (size) {
-    //
-    //        var modalInstance = $modal.open({
-    //            templateUrl: 'myModal.html',
-    //            controller: 'ModalInstanceCtrl',
-    //            size: size,
-    //            resolve: { },
-    //            backdrop: true,
-    //            backdropClass: 'backdrop',
-    //            windowClass: 'fuckshadows'
-    //        });
-    //
-    //    };
-    //
-    //}).
-    //
-    //angular.module('LandApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-    //    $scope.close = function () {
-    //        $modalInstance.close();
-    //    };
-    //});
+    angular.module('LandApp', ["ui.router", "ngAnimate"]);
+
 /*!
  * classie v1.0.1
  * class helper functions
