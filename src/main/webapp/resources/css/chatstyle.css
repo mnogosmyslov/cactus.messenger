@@ -159,8 +159,9 @@ li:hover {
     margin: 95px auto 0 auto;
     min-width: 401px;
 }
-#settings .profile {
-
+.center {
+    width: 60%;
+    margin: 20px auto;
 }
 
 input[disabled]{
