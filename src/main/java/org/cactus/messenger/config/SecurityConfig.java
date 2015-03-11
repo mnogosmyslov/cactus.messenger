@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                     .logoutUrl("/logout")
                     .deleteCookies(environment.getProperty("app.cookieName"));
+//                TODO: cookie impl
 //                .and()
 //                .rememberMe()
 //                    .rememberMeServices(rememberMeServices())
