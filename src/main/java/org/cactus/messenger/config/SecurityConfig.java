@@ -40,8 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().authorizeRequests()
-                    .antMatchers("/resources/**", "/").permitAll()
-                    .anyRequest().authenticated()
+                    .antMatchers("/resources/**", "/**").permitAll()
+                    .anyRequest().permitAll()
                 .and()
                 .formLogin()
                     .loginPage("/login")
@@ -83,9 +83,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new ShaPasswordEncoder();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        ShaPasswordEncoder encoder = new ShaPasswordEncoder();
-//        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        ShaPasswordEncoder encoder = new ShaPasswordEncoder();
+        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+    }
 }
