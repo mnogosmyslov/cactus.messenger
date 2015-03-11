@@ -9,11 +9,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @Controller
 public class AuthenticationController {
 
-    @RequestMapping(value = "/sign_in", method = GET)
-    public String signinView() {
-        return PageNames.SIGNIN;
-    }
-
     @RequestMapping(value = "/sign_up", method = GET)
     public String signupView() {
         return PageNames.SIGNUP;
@@ -21,7 +16,7 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/login", method = GET)
     public String loginView() {
-        return "login";
+        return PageNames.LOGIN;
     }
 
 }
