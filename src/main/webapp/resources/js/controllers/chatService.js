@@ -1,5 +1,5 @@
 angular.module("ChatApp").service("ChatService", function($q, $timeout) {
-
+    var id= 0;
     var service = {}, listener = $q.defer(), socket = {
         client: null,
         stomp: null
@@ -15,12 +15,14 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
     };
 
     service.send = function(message) {
-        var id = Math.floor(Math.random() * 1000000);
+        id += 1;
+        var viewed = false;
         socket.stomp.send(service.CHAT_BROKER, {
             priority: 9
         }, JSON.stringify({
             message: message,
-            id: id
+            id: id,
+            viewed : viewed
         }));
         messageIds.push(id);
     };

@@ -28,8 +28,10 @@
 angular.module("ChatApp").controller("ChatApi", function($scope, $http, ChatService) {
     $scope.messages = [];
     $scope.message = "";
-    $scope.max = 140;
-
+    //$scope.max = 140;
+    $scope.history = [];
+    $http.get("../cactus/pages/chats/chatid1.json")
+        .success(function(response) {$scope.history = response;});
         $http.get("../cactus/pages/chats/chatlist.json")
             .success(function(response) {$scope.chats = response; $scope.currentChat = $scope.chats[0].url;});
 
