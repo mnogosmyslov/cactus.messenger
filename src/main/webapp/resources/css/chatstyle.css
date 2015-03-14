@@ -163,8 +163,9 @@ li:hover {
 .main-info {
     position: fixed;
     z-index: 10001;
+    height: calc(100% - 70px);
     width: 100%;
-    height: 100%;
+    bottom: 0;
     background-color: #fff;
 }
 
@@ -220,7 +221,11 @@ input[disabled]{
     border: none;
 }
 /*contacts modal*/
+.contact {
+    left: 0;
+}
 .contacts {
+
     z-index: 10100;
     position: absolute;
     width: 100%;
@@ -291,7 +296,6 @@ legend {
 
 /*profile fragment*/
 .profile-main-info {
-    right: 0;
     bottom: 0;
     position: fixed;
     z-index: 10001;
@@ -309,45 +313,51 @@ legend {
     background-color: #000;
     opacity: 0;
     overflow: hidden;
+    left: 0;
+}
+.profile {
+    margin-left: 20%;
 }
 
-.ng-hide-add         {
+.ng-hide-add {
     -webkit-animation:0.3s lightSpeedOut ease;
     animation:0.3s lightSpeedOut ease;
 }
-.ng-hide-remove      {
-    -webkit-animation:0.3s flipInX ease;
-    animation:0.3s flipInX ease;
+.ng-hide-remove {
+    -webkit-animation:0.3s lightSpeedIn ease;
+    animation:0.3s lightSpeedIn ease;
 }
 
-@-webkit-keyframes flipInX {
+.profile.ng-hide-remove {
+    -webkit-animation:0.3s profileIn ease;
+    animation:0.3s profileIn ease;
+}
+.profile.ng-hide-add {
+    -webkit-animation:0.3s profileOut ease;
+    animation:0.3s profileOut ease;
+
+}
+
+@-webkit-keyframes lightSpeedIn {
     0% {
-        -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        margin-left: 100%;
+        right:-80%;
         opacity: 0;
     }
 
     100% {
-        margin-left: 0;
+        right: 0;
         opacity: 1;
     }
 }
 
-@keyframes flipInX {
+@keyframes lightSpeedIn {
     0% {
-        -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-        transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        margin-left: 100%;
+        right: -80%;
         opacity: 0;
     }
 
     100% {
-        margin-left: 0;
+        right: 0;
         opacity: 1;
     }
 }
@@ -355,24 +365,73 @@ legend {
 @-webkit-keyframes lightSpeedOut {
     0% {
         opacity: 1;
-        margin-left: 0;
+        right: 0;
     }
 
     100% {
-        margin-left: 100%;
+        right: -80%;
         opacity: 0;
     }
 }
 
 @keyframes lightSpeedOut {
     0% {
-        margin-left: 0;
+        right: 0;
         opacity: 1;
     }
 
     100% {
-        margin-left: 100%;
+        right: -80%;
         opacity: 0;
     }
 }
+
+@-webkit-keyframes profileIn {
+    0% {
+        right:-60%;
+        opacity: 0;
+    }
+
+    100% {
+        right: -20%;
+        opacity: 1;
+    }
+}
+
+@keyframes profileIn {
+    0% {
+        right: -60%;
+        opacity: 0;
+    }
+
+    100% {
+        right: -20%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes profileOut {
+    0% {
+        opacity: 1;
+        right: -20%;
+    }
+
+    100% {
+        right: -60%;
+        opacity: 0;
+    }
+}
+
+@keyframes profileOut {
+    0% {
+        right: -20%;
+        opacity: 1;
+    }
+
+    100% {
+        right: -60%;
+        opacity: 0;
+    }
+}
+
 
