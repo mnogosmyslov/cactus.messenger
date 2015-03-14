@@ -16,13 +16,13 @@
         $scope.isActiveContact = function(chatUrl) {
             return chatUrl == $scope.currentContact;
         };
-        $scope.contacts = false;
-        $scope.add_cont = false;
+        $scope.contacts = $scope.add_cont = $scope.setting = $scope.profile = false;
+
         $http.get("../cactus/pages/chats/settings.json")
             .success(function(response) {$scope.settingsInfo = response;});
 
 
-        $scope.setting = false;
+
     });
 
 angular.module("ChatApp").controller("ChatApi", function($scope, $http, ChatService) {

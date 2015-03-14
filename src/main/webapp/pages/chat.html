@@ -21,10 +21,9 @@
     <div ng-controller="HeaderContacts">
     <header class="greenheader">
         <a id="logo" href="/cactus/"></a>
-
             <input id="user-settings" type="button" value="Settings" ng-click="setting = !setting" ng-class="{ active: setting }"/>
             <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
-
+            <input id="user-profile" type="button" value="Profile" ng-click="profile = !profile" ng-class="{ active: profile }"/>
     </header>
         <div class="contacts" ng-show="setting">
             <div ng-include="'/cactus/pages/settings_frag.html'"></div>
@@ -33,6 +32,11 @@
         <div class="contacts" ng-show="contacts">
             <div ng-include="'/cactus/pages/contacts_frag.html'"></div>
             <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
+        </div>
+        <div class="contacts" ng-show="profile">
+            <div ng-include="'/cactus/pages/profile_frag.html'"></div>
+            <div class="profile-shadow" ng-click="profile = false" ng-class="{ active: profile }"></div>
+            <div class="back" ng-click="profile = false" ng-class="{ active: profile }"></div>
         </div>
     </div>
 
