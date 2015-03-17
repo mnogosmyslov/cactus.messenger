@@ -14,8 +14,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.RememberMeServices;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 @Configuration
 @EnableWebSecurity
@@ -27,12 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private Environment environment;
 
     @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(userDetailsService)
+                .userDetailsService(getUserDetailsService())
                 .passwordEncoder(getShaPasswordEncoder());
     }
 
@@ -63,15 +58,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .key(environment.getProperty("app.key"));
     }
 
-    @Bean
-    public RememberMeServices rememberMeServices(){
-        TokenBasedRememberMeServices rememberMeServices =
-                new TokenBasedRememberMeServices(environment.getProperty("app.key"), userDetailsService);
-        rememberMeServices.setCookieName(environment.getProperty("app.cookieName"));
-        rememberMeServices.setParameter("rememberMe");
-        rememberMeServices.setAlwaysRemember(true);
-        return rememberMeServices;
-    }
+//    @Bean
+//    public RememberMeServices rememberMeServices(){
+//        TokenBasedRememberMeServices rememberMeServices =
+//                new TokenBasedRememberMeServices(environment.getProperty("app.key"), userDetailsService);
+//        rememberMeServices.setCookieName(environment.getProperty("app.cookieName"));
+//        rememberMeServices.setParameter("rememberMe");
+//        rememberMeServices.setAlwaysRemember(true);
+//        return rememberMeServices;
+//    }
 
     @Bean
     public UserDetailsService getUserDetailsService(){
@@ -84,9 +79,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new ShaPasswordEncoder();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        ShaPasswordEncoder encoder = new ShaPasswordEncoder();
-        auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
-    }
 }
