@@ -23,7 +23,7 @@
         <a id="logo" href="/cactus/"></a>
             <input id="user-settings" type="button" value="Settings" ng-click="setting = !setting" ng-class="{ active: setting }"/>
             <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
-            <input id="user-profile" type="button" value="Profile" ng-click="profile = !profile" ng-class="{ active: profile }"/>
+            <input id="user-profile" type="button" value="Profile" ng-click="profile = !profile; loadProfile()" ng-class="{ active: profile }"/>
     </header>
         <div class="contacts" ng-show="setting">
             <div ng-include="'/cactus/pages/settings_frag.html'"></div>
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div ng-controller="ChatApi">
+    <div ng-controller="ChatApi as api">
 
         <aside id="chatlist" style="overflow-y: scroll">
             <input ng-model="searchText" />
@@ -48,13 +48,18 @@
                 <ul>
                     <li ng-repeat="chat in chats | filter:searchText"
                         ng-class="{active:isActiveChat(chat.url)}"
-                        ng-click="onClickChat(chat)">{{chat.title}}</li>
+                        ng-click="onClickChat(chat)">{{chat.list.partner.username}}</li>
                 </ul>
             </div>
 
         </aside>
         <main>
             <div id="chatPreView">
+                <div ng-repeat="profile in profiles" class="user-profile">
+                    <img class="mini-avatar" ng-src="{{profile.id2.avatar}}" />
+                    <div class="user-name">{{profile.response.name}}</div>
+                    <div class="user-nick">{{profile.id2.username}}</div>
+                </div>
                 <div ng-include="currentChat"></div>
                 <div class="messages">
                     <p ng-repeat="history in history| orderBy:'history.id':true" class="message">

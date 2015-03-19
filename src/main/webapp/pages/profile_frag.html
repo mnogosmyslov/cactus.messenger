@@ -1,16 +1,16 @@
 
 <div class="profile-main-info">
     <div class="center">
-        <div class="useravatar" ng-repeat="info in settingsInfo" style="background: url('{{info.avatar}}') no-repeat;background-size: 150px; height: 170px;"></div>
+        <div class="useravatar" style="background: url('{{settingsInfo.photo}}') no-repeat;background-size: 150px; height: 170px;"></div>
 
-        <p ng-repeat="info in settingsInfo">{{info.first_name}}</p>
-        <p ng-repeat="info in settingsInfo">{{info.last_name}}</p>
+        <p>{{settingsInfo.name}}</p>
+
         <div id="upd"></div>
 
         <form>
             <legend>General info</legend>
-            <p ng-repeat="info in settingsInfo">Username: {{info.username}}</p>
-            <p ng-repeat="info in settingsInfo">E-mail: {{info.email}}</p>
+            <p >Username: @{{settingsInfo.login}}</p>
+            <p >E-mail: {{settingsInfo.email}}</p>
         </form>
     </div>
 </div>

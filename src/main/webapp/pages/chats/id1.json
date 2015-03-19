@@ -1,0 +1,20 @@
+[{
+   "id2" : {
+              "name" : "Darth Vader",
+              "username" : "@fancykitty",
+              "email" : "fancykitty@mail.ru",
+              "avatar": "resources/tmp/darth.png"
+            },
+   "id15": {
+            "name" : "",
+            "username" : "@edi",
+            "email" : "fancykitty@mail.ru",
+            "avatar": "resources/tmp/hoody.png"
+          },
+   "id42": {
+              "name" : "Darth Vader",
+              "username" : "@fancykitty",
+              "email" : "fancykitty@mail.ru",
+              "avatar": "resources/tmp/hoody.png"
+            }
+ }]

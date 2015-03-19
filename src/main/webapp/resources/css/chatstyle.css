@@ -295,6 +295,12 @@ legend {
 }
 
 /*profile fragment*/
+.mini-avatar {
+    height: 50px;
+}
+.user-profile {
+
+}
 .profile-main-info {
     bottom: 0;
     position: fixed;
@@ -335,7 +341,6 @@ legend {
 .profile.ng-hide-add {
     -webkit-animation:0.3s profileOut ease;
     animation:0.3s profileOut ease;
-
 }
 
 @-webkit-keyframes lightSpeedIn {
