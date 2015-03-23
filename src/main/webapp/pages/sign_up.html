@@ -18,21 +18,6 @@
 <body ng-app="LandApp" class="demo-3">
 
 <div id="tabs" ng-controller="TabsCtrl">
-    <!--<ul>-->
-        <!--<li ng-repeat="tab in tabs"-->
-            <!--ng-class="{active:isActiveTab(tab.url)}"-->
-            <!--ng-click="onClickTab(tab)">{{tab.title}}</li>-->
-    <!--</ul>-->
-    <!--<div id="mainView">-->
-        <!--<div ng-include="currentTab"></div>-->
-    <!--</div>-->
-
-    <!--<script type="text/ng-template" id="two.tpl.html">-->
-        <!--<div id="viewTwo">-->
-            <!---->
-
-        <!--</div>-->
-    <!--</script>-->
     <div id="sign_up">
         <h3>Sign up</h3>
             <form novalidate="" class="css-form" ng-submit="postSignUp()" name="signup_form">
@@ -77,8 +62,8 @@
 <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
-<script th:src="@{/resources/js/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
-<script th:src="@{/resources/js/controllers/authorize.js}" src="../resources/js/controllers/authorize.js"></script>
+<script th:src="@{/resources/js/libs/bootstrap.js}" src="../resources/js/libs/bootstrap.js"></script>
+<script th:src="@{/resources/js/controllers/authorization/authorize.js}" src="../resources/js/controllers/authorization/authorize.js"></script>
 
 </body>
 
