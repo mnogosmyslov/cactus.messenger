@@ -11,8 +11,7 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[] {
                 SecurityConfig.class,
-                ServicesConfig.class,
-                WebSocketConfig.class
+                ServicesConfig.class
         };
     }
 

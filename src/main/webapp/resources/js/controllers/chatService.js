@@ -6,7 +6,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
     }, messageIds = [];
 
     service.RECONNECT_TIMEOUT = 30000;
-    service.SOCKET_URL = "/cactus/chat";
+    service.SOCKET_URL = "/server/chat";
     service.CHAT_TOPIC = "/conversation";
     service.CHAT_BROKER = "/messenger/chat";
 
