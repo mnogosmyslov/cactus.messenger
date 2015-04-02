@@ -199,28 +199,18 @@ input[disabled]{
  }
 
 .back {
-    z-index: 10001;
-    background: url("../img/ico/ic_arrow_back_24px_dark.png") no-repeat;
     top: 100px;
     left: 10%;
     position: absolute;
-    background-size: 50px;
-    height: 50px;
-    width: 50px;
     opacity: 0.4;
     transition: 0.2s ease-in-out ;
-    border: none
 }
 
 .back:hover {
-    background-color: rgba(0,0,0,0);
-    background-image: url("../img/ico/ic_arrow_back_24px_dark.png");
     cursor: pointer;
     opacity: 1;
 }
-.back:active {
-    border: none;
-}
+
 /*contacts modal*/
 .contact {
     left: 0;
@@ -294,7 +284,7 @@ input[disabled]{
 .conshadow {
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 10002;
     width: 100%;
     height: 100%;
     background-color: #000000;
@@ -360,7 +350,9 @@ legend {
     left: 0;
 }
 .profile {
+    margin-top: 80px;
     margin-left: 20%;
+    height: calc(100% - 50px);
 }
 
 .ng-hide-add {

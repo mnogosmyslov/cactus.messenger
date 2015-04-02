@@ -10,33 +10,25 @@
     <meta name = "robots" content = "" />
 
 
-    <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/css/chatstyle.css}" href="../resources/css/chatstyle.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/css/materialize.min.css}" href="../resources/css/materialize.min.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 
 </head>
-<body ng-app="ChatApp">
-
+<body ng-app="ChatApp" >
+<div ng-view="" class="contolls"></div>
     <div ng-controller="HeaderContacts">
-    <header class="greenheader blue darken-4">
+    <header class="greenheader blue darken-4 contolls">
         <a id="logo" href="/cactus/"></a>
             <button id="user-settings" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="setting = !setting" >Settings</button>
-            <button id="user-contacts" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="contacts = !contacts" >Contacts</button>
-            <button id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="profile = !profile; loadProfile()" >Profile</button>
-            <button id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="add_cont = !add_cont" >New Contact</button>
-        <!--<a href="./new" id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" >New</a>-->
-    </header>
-        <div ng-view=""></div>
-        <div class="contacts" ng-show="add_cont">
-            <div ng-include="'/cactus/pages/newContact_frag.html'"></div>
+            <a href="#/contacts" id="user-contacts" class="waves-effect waves-darken blue darken-4 btn-flat">Contacts</a>
+            <!--<button id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="add_cont = !add_cont" >New Contact</button>-->
+            <a href="#/profile" id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat"  ng-click="loadProfile()">Profile</a>
 
-            <div class="conshadow" ng-click="add_cont = false" ng-class="{ active: add_cont }"></div>
-        </div>
+    </header>
         <div class="contacts" ng-show="setting">
             <div ng-include="'/cactus/pages/settings_frag.html'"></div>
-
             <div class="back" ng-click="setting = false" ng-class="{ active: setting }"></div>
         </div>
         <div class="contact contacts" ng-show="contacts">
@@ -45,13 +37,12 @@
         </div>
         <div class="profile contacts" ng-show="profile">
             <div ng-include="'/cactus/pages/profile_frag.html'"></div>
-            <div class="profile-shadow" ng-click="profile = false" ng-class="{ active: profile }"></div>
-            <div class="back" ng-click="profile = false" ng-class="{ active: profile }"></div>
+
+
         </div>
     </div>
 
     <div ng-controller="ChatApi as api">
-
         <aside id="chatlist" style="overflow-y: scroll">
             <input ng-model="searchText" />
             <div>
@@ -121,6 +112,6 @@
     <script th:src="@{/resources/js/controllers/chat/main.js}" src="../resources/js/controllers/chat/main.js"></script>
     <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/search.js"></script>
     <script th:src="@{/resources/js/controllers/chatService.js}" src="../resources/js/controllers/chatService.js"></script>
-    <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/route.js"></script>
+    <script th:src="@{/resources/js/controllers/chat/route.js}" src="../resources/js/controllers/chat/route.js"></script>
 </body>
 </html>
