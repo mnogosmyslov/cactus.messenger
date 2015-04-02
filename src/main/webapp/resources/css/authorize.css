@@ -104,3 +104,6 @@ li {
 .active:hover {
     background-color: #9ddff9;
 }
+.active {
+    border: none;
+}

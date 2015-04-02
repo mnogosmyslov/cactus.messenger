@@ -1,16 +1,26 @@
 <div class="contacts-content">
-    <div class="forms">
-    <form>
+    <div class=" collection with-header">
+
+    <form class="collection-header">
         <legend>Contacts <a href="#" ng-click="add_cont = !add_cont" ng-class="{ active: add_cont }">Add contact</a></legend>
         <input ng-model="searchText" />
     </form>
-    </div>
-    <div class="contacts-users">
+
         <ul>
-            <li ng-repeat="contact in contactLists | filter:searchText"
-                ng-class="{active:isActiveChat(contact.url)}"
-                ng-click="onClickChat(contact)">{{contact.title}}</li>
-        </ul>
+            <li class="collection-item avatar"
+                ng-repeat="contact in contactLists | filter:searchText"
+                ng-click="onClickChat(contact)">
+                <img ng-src="{{contact.photo}}/cactus/resources/tmp/photo.png" alt="" class="photo-preview">
+                <span class="title">{{contact.name}}</span>
+                <p class="move-bitch">@{{contact.login}} <br>
+                    {{contact.email}}
+                </p>
+            </li>
+
+
+            </ul>
+
     </div>
+
 </div>
 

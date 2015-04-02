@@ -8,7 +8,6 @@
         width: 100%!important;
     }
     main div{
-
         width: 100%!important;
     }
     main input {
@@ -17,6 +16,9 @@
     .profile-main-info {
         width: 100%!important;
     }
+}
+::-webkit-scrollbar {
+    display: none;
 }
 body, html {
     scrollbar-face-color: ThreeDFace !important;
@@ -42,16 +44,20 @@ header {
     width: 100%;
     top: 0;
 }
-header input {
-    margin: 0 5px;
+header button {
+    position: relative;
+    top: -10px;
+    margin: 0 5px!important;
     background: none;
     border: none;
-    color: #fff;
-    padding: 23px 20px 15px 20px;
-    font: lighter 13pt Arial;
+    color: #fff!important;
+    padding: 25px 30px 43px 30px!important;
 }
-header input:hover {
-    background: #163644;
+header input:active {
+    background: none;
+}
+header input:focus{
+    background: none;
 }
 header div {
     float: left;
@@ -96,53 +102,48 @@ main div{
     position: fixed;
     width: 80%;
     bottom: 0;
-    margin-left: 0;
+    margin: 0!important;
     height: 30px;
     padding: 5px 0;
 }
 .info {
-    max-width: 100px;
-    max-height: 20px;
+    max-width: 30px;
+    max-height: 30px;
     position: fixed;
-    right: 0;
-    bottom: 5px;
+    right: 30px;
+    bottom: 13px;
 }
 .info button {
-    background: none;
+    font-size: 2rem;
     padding: 0;
-    outline: none;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 20px;
-    border-color: transparent transparent transparent #f91d25;
 }
-
+.info button[disabled]{
+    opacity: 0.6;
+}
 #logo{
     background-size: 100%;
     opacity: 1;
     padding: 0;
     height: 70px;
 }
-ul {
+.contacts ul {
     list-style: none;
     padding: 0;
 }
-li {
+.contacts li {
     float: none;
     height: 8em;
     background-color: #fff;
     color: #000;
     cursor: pointer;
-    border-top: 1px solid #cad4d6;
     margin: 0;
     padding: 0 0 0 20px;
 }
 
-li:last-child {
+.contacts li:last-child {
     border-bottom: 1px solid #cad4d6;
 }
-li:hover {
+.contacts li:hover {
     background-color: #cad4d6;
 }
 .active {
@@ -225,12 +226,19 @@ input[disabled]{
     left: 0;
 }
 .contacts {
-
     z-index: 10100;
     position: absolute;
     width: 100%;
     height: 100%;
 }
+.contacts li span, .move-bitch {
+    position: relative;
+    left: 60px;
+}
+.contacts li p {
+    color: #616161;
+}
+
 .contacts .forms {
     position: fixed;
     width: 500px;
@@ -241,17 +249,47 @@ input[disabled]{
 }
 .contacts-content{
     position: relative;
-    padding: 12px;
     z-index: 21;
     width: 500px;
     height: 100%;
     background-color: #fff;
     margin: 0 auto 0 auto;
 }
+.add-new {
+    padding: 20px;
+    height: 180px;
+    position: fixed;
+    left: calc(50% - 250px);
+    top: calc(50% - 150px);
+    overflow: hidden;
+}
+.add-contact {
+    position: absolute;
+    width: 49%;
+    right: 0!important;
+}
+.close {
+    position: absolute;
+    width: 50%;
+    left: 0;
+
+}
 .contacts-users {
     margin-top: 100px;
-    overflow-y: scroll;
     height: 100%!important;
+}
+.collection {
+    background-color: #fff;
+    height: 100%;
+}
+.contacts-content div {
+    background-color: #fff;
+}
+.photo-preview {
+    position: absolute;
+    left: 15px;
+    height: 69px;
+    width: 61px;
 }
 .conshadow {
     position: fixed;

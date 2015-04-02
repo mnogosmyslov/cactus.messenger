@@ -5,7 +5,7 @@ angular.module('LandApp', ["ui.router", "ngAnimate"]);
 
 angular.module('LandApp').controller("TabsCtrl", function($rootScope, $scope, $http){
     $scope.postSignUp = function(){
-        var mydata = {"email": $scope.email, "login": $scope.username, "password": $scope.password};
+        var mydata = {"name": $scope.name, "email": $scope.email, "login": $scope.username, "password": $scope.password};
         $http({
             method: 'POST',
             url: '/cactus/user/new',

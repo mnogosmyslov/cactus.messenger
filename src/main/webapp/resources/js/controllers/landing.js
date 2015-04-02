@@ -2,7 +2,7 @@
  * Created by Airofsummer on 14.01.2015.
  */
 
-    angular.module('LandApp', ["ui.router", "ngAnimate"]);
+    angular.module('LandApp', ["ui.router", "ngAnimate", 'ngRoute']);
 
 /*!
  * classie v1.0.1

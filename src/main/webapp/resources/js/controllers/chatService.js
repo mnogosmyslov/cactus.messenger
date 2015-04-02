@@ -14,7 +14,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
         return listener.promise;
     };
 
-    service.send = function(message) {
+    service.send = function(message, time) {
         id += 1;
         var viewed = false;
         socket.stomp.send(service.CHAT_BROKER, {
@@ -22,6 +22,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
         }, JSON.stringify({
             message: message,
             id: id,
+            time: time,
             viewed : viewed
         }));
         messageIds.push(id);

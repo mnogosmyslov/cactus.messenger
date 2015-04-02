@@ -9,9 +9,10 @@
     <meta name = "keywords" content = "" />
     <meta name = "robots" content = "" />
 
-    <link th:href="@{/resources/css/bootstrap.css}" href="../resources/css/bootstrap.css" rel="stylesheet" />
+
     <link th:href="@{/resources/css/style.css}" href="../resources/css/style.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/css/chatstyle.css}" href="../resources/css/chatstyle.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/resources/css/materialize.min.css}" href="../resources/css/materialize.min.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 
@@ -19,14 +20,23 @@
 <body ng-app="ChatApp">
 
     <div ng-controller="HeaderContacts">
-    <header class="greenheader">
+    <header class="greenheader blue darken-4">
         <a id="logo" href="/cactus/"></a>
-            <input id="user-settings" type="button" value="Settings" ng-click="setting = !setting" ng-class="{ active: setting }"/>
-            <input id="user-contacts" type="button" value="Contacts" ng-click="contacts = !contacts" ng-class="{ active: contacts }"/>
-            <input id="user-profile" type="button" value="Profile" ng-click="profile = !profile; loadProfile()" ng-class="{ active: profile }"/>
+            <button id="user-settings" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="setting = !setting" >Settings</button>
+            <button id="user-contacts" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="contacts = !contacts" >Contacts</button>
+            <button id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="profile = !profile; loadProfile()" >Profile</button>
+            <button id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="add_cont = !add_cont" >New Contact</button>
+        <!--<a href="./new" id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" >New</a>-->
     </header>
+        <div ng-view=""></div>
+        <div class="contacts" ng-show="add_cont">
+            <div ng-include="'/cactus/pages/newContact_frag.html'"></div>
+
+            <div class="conshadow" ng-click="add_cont = false" ng-class="{ active: add_cont }"></div>
+        </div>
         <div class="contacts" ng-show="setting">
             <div ng-include="'/cactus/pages/settings_frag.html'"></div>
+
             <div class="back" ng-click="setting = false" ng-class="{ active: setting }"></div>
         </div>
         <div class="contact contacts" ng-show="contacts">
@@ -53,6 +63,17 @@
             </div>
 
         </aside>
+        <div class="fixed-action-btn" style="position: fixed; bottom: 10px; right: 60px;">
+            <a>
+                <i class="middle mdi-editor-attach-file"></i>
+            </a>
+            <ul>
+                <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
+                <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
+                <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
+                <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+            </ul>
+        </div>
         <main>
             <div id="chatPreView">
                 <div ng-repeat="profile in profiles" class="user-profile">
@@ -72,16 +93,17 @@
                 </p>
                 </div>
             </div>
+
             <form ng-submit="addMessage()" name="messageForm">
-                <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" ng-model-options="{updateOn: blur}"/>
+                <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" />
                 <div class="info">
-                    <span class="count" ng-bind="max - message.length" ng-class="{danger: message.length > max}">140</span>
-                    <button ng-disabled="message.length > max || message.length === 0">Send</button>
+                    <button
+                            class="waves-effect waves-teal btn-flat middle mdi-content-send"
+                            ng-disabled="message.length === 0">
+                    </button>
                 </div>
             </form>
         </main>
-
-
     </div>
 
     <script th:src="@{/resources/js/libs/jquery-2.1.3.min.js}" src="../resources/js/libs/jquery-2.1.3.min.js"></script>
@@ -92,11 +114,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.js"></script>
     <script th:src="@{/resources/js/libs/lodash.min.js}" src="../resources/js/libs/lodash.min.js"></script>
     <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-    <script th:src="@{/resources/js/libs/bootstrap.js}" src="../resources/js/bootstrap.js"></script>
+    <script th:src="@{/resources/js/libs/bootstrap.js}" src="../resources/js/libs/bootstrap.js"></script>
+    <script th:src="@{/resources/js/libs/materialize.min.js}" src="../resources/js/libs/materialize.min.js"></script>
     <script th:src="@{/resources/js/chatApp.js}" src="../resources/js/chatApp.js"></script>
     <script th:src="@{/resources/js/controllers/chat/header-contacts.js}" src="../resources/js/controllers/chat/header-contacts.js"></script>
     <script th:src="@{/resources/js/controllers/chat/main.js}" src="../resources/js/controllers/chat/main.js"></script>
     <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/search.js"></script>
     <script th:src="@{/resources/js/controllers/chatService.js}" src="../resources/js/controllers/chatService.js"></script>
+    <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/route.js"></script>
 </body>
 </html>

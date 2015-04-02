@@ -1,15 +1,21 @@
-[{"title" : "Dark Daddy",
-"url" : "force_gripper.tpl.html"
+[{"name" : "Dark Daddy",
+"login" : "fancykitty",
+"photo": "http://i.imgur.com/GVK12do.png",
+"email": "iamyourdaddy@mail.ru"
 }, {
-"title" : "policebox",
-"url" : "policebox.tpl.html"
+"name" : "",
+"login" : "policebox",
+"photo": "http://i.imgur.com/jHeckEf.png"
 }, {
-"title" : "sauron",
-"url":  "sauron.tpl.html"
+  "name" : "sauron",
+"login":  "sauron",
+"photo": ""
 }, {
-"title": "Albus Percival Wulfric Brian Dumbledore",
-"url": "albus.tpl.html"
+  "name": "Albus Percival Wulfric Brian Dumbledore",
+"login": "albus",
+"photo": "http://i.imgur.com/pNJcnOn.png"
 }, {
-"title": "Wenk Wenk",
-"url": "wenk-wenk.tpl.html"
+  "name": "Wenk Wenk",
+"login": "wenk_wenk",
+"photo": ""
 }]
