@@ -7,10 +7,7 @@ angular.module("ChatApp").config(function($routeProvider){
     })
         .when('/profile', {
             templateUrl: '/cactus/pages/profile_frag.html ',
-            controller: function($http, $scope){
-                $http.get("/server/user/999")
-                    .success(function(response) {$scope.settingsInfo = response; });
-            }
+            controller: 'ChatApi'
         })
         .when('/contacts', {
             templateUrl: '/cactus/pages/contacts_frag.html ',
@@ -18,6 +15,9 @@ angular.module("ChatApp").config(function($routeProvider){
                 $http.get("../cactus/pages/chats/contacts.json")
                     .success(function(response) {$scope.contactLists = response;});
             }
+        })
+        .when('/settings', {
+            templateUrl: '/cactus/pages/settings_frag.html '
         })
         .otherwise({redirectTo: '/'});
 });

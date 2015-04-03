@@ -262,7 +262,6 @@ input[disabled]{
     position: absolute;
     width: 50%;
     left: 0;
-
 }
 .contacts-users {
     margin-top: 100px;
@@ -280,6 +279,10 @@ input[disabled]{
     left: 15px;
     height: 69px;
     width: 61px;
+}
+.contolls a {
+    color: #fff;
+    padding: 15px 20px 40px 20px;
 }
 .conshadow {
     position: fixed;

@@ -21,27 +21,15 @@
     <div ng-controller="HeaderContacts">
     <header class="greenheader blue darken-4 contolls">
         <a id="logo" href="/cactus/"></a>
-            <button id="user-settings" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="setting = !setting" >Settings</button>
+            <a href="#/settings" id="user-settings" class="waves-effect waves-darken blue darken-4 btn-flat">Settings</a>
             <a href="#/contacts" id="user-contacts" class="waves-effect waves-darken blue darken-4 btn-flat">Contacts</a>
-            <!--<button id="user-new" class="waves-effect waves-darken blue darken-4 btn-flat" ng-click="add_cont = !add_cont" >New Contact</button>-->
-            <a href="#/profile" id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat"  ng-click="loadProfile()">Profile</a>
-
+            <a href="#/profile" id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat">Profile</a>
     </header>
         <div class="contacts" ng-show="setting">
             <div ng-include="'/cactus/pages/settings_frag.html'"></div>
             <div class="back" ng-click="setting = false" ng-class="{ active: setting }"></div>
         </div>
-        <div class="contact contacts" ng-show="contacts">
-            <div ng-include="'/cactus/pages/contacts_frag.html'"></div>
-            <div class="conshadow" ng-click="contacts = false" ng-class="{ active: contacts }"></div>
-        </div>
-        <div class="profile contacts" ng-show="profile">
-            <div ng-include="'/cactus/pages/profile_frag.html'"></div>
-
-
-        </div>
     </div>
-
     <div ng-controller="ChatApi as api">
         <aside id="chatlist" style="overflow-y: scroll">
             <input ng-model="searchText" />
@@ -52,11 +40,10 @@
                         ng-click="onClickChat(chat)">{{chat.list.partner.username}}</li>
                 </ul>
             </div>
-
         </aside>
         <div class="fixed-action-btn" style="position: fixed; bottom: 10px; right: 60px;">
             <a>
-                <i class="middle mdi-editor-attach-file"></i>
+                <i class="small mdi-editor-attach-file"></i>
             </a>
             <ul>
                 <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
@@ -75,16 +62,15 @@
                 <div ng-include="currentChat"></div>
                 <div class="messages">
                     <p ng-repeat="history in history| orderBy:'history.id':true" class="message">
-                        <time>{{history.time | date:'HH:mm:ss'}}</time>
+                        <time>{{history.date | date:'HH:mm:ss'}}</time>
                         <span ng-class="{self: history.self}">{{history.text}}</span>
                     </p>
                 <p ng-repeat="message in messages | orderBy:'message.id':true" class="message">
-                <time>{{message.time | date:'HH:mm:ss'}}</time>
+                <time>{{message.date | date:'HH:mm:ss'}}</time>
                 <span ng-class="{self: message.self}">{{message.message}}</span>
                 </p>
                 </div>
             </div>
-
             <form ng-submit="addMessage()" name="messageForm">
                 <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" />
                 <div class="info">

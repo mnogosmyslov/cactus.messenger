@@ -1,5 +1,10 @@
-angular.module("ChatApp").service("ChatService", function($q, $timeout) {
-    var id= 0;
+angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
+    var userInfo;
+    $http.get("/server/user/999")
+        .success(function(response) {
+            userInfo = response;
+            return userInfo;
+        });
     var service = {}, listener = $q.defer(), socket = {
         client: null,
         stomp: null
@@ -15,17 +20,15 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
     };
 
     service.send = function(message, time) {
-        id += 1;
         var viewed = false;
         socket.stomp.send(service.CHAT_BROKER, {
             priority: 9
         }, JSON.stringify({
             message: message,
-            id: id,
-            time: time,
-            viewed : viewed
+            date: time,
+            viewed : viewed,
+            authorId: userInfo.id
         }));
-        messageIds.push(id);
     };
 
     var reconnect = function() {
@@ -37,7 +40,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout) {
     var getMessage = function(data) {
         var message = JSON.parse(data), out = {};
         out.message = message.message;
-        out.time = new Date(message.time);
+        out.date = new Date(message.date);
         if (_.contains(messageIds, message.id)) {
             out.self = true;
             messageIds = _.remove(messageIds, message.id);
