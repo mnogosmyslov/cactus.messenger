@@ -7,7 +7,8 @@ angular.module("ChatApp").config(function($routeProvider){
     })
         .when('/profile', {
             templateUrl: '/cactus/pages/profile_frag.html ',
-            controller: 'ChatApi'
+            controller: 'ChatApi',
+          //  animation: 'second'
         })
         .when('/contacts', {
             templateUrl: '/cactus/pages/contacts_frag.html ',
@@ -17,7 +18,8 @@ angular.module("ChatApp").config(function($routeProvider){
             }
         })
         .when('/settings', {
-            templateUrl: '/cactus/pages/settings_frag.html '
+            templateUrl: '/cactus/pages/settings_frag.html ',
+          //  animation: 'second'
         })
         .otherwise({redirectTo: '/'});
 });

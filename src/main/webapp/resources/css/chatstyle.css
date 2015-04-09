@@ -21,14 +21,7 @@
     display: none;
 }
 body, html {
-    scrollbar-face-color: ThreeDFace !important;
-    scrollbar-shadow-color: ThreeDDarkShadow !important;
-    scrollbar-highlight-color: ThreeDHighlight !important;
-    scrollbar-3dlight-color: ThreeDLightShadow !important;
-    scrollbar-darkshadow-color: ThreeDDarkShadow !important;
-    scrollbar-track-color: Scrollbar !important;
-    scrollbar-arrow-color: ButtonText !important;
-    height: 100%;
+    height: 99%;
 }
 html {
     overflow-x: hidden;
@@ -121,10 +114,10 @@ main div{
     opacity: 0.6;
 }
 #logo{
-    background-size: 100%;
-    opacity: 1;
-    padding: 0;
-    height: 70px;
+    height: 60px;
+    position: absolute;
+    right: calc(50% - 60px);
+    top: 5px;
 }
 .contacts ul {
     list-style: none;
@@ -216,7 +209,7 @@ input[disabled]{
     left: 0;
 }
 .contacts {
-    z-index: 10100;
+    z-index: 10002;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -285,17 +278,18 @@ input[disabled]{
     padding: 15px 20px 40px 20px;
 }
 .conshadow {
-    position: fixed;
-    top: 0;
-    z-index: 10002;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+
+    width: 100%!important;
+    height: 100%!important;
+    background-color: #000000!important;
     opacity: 0.4;
     overflow: hidden;
 }
-div.conshadow.active:hover {
-    background-color: #000000;
+div.conshadow:hover {
+    background-color: #000000!important;
 }
 input.user-contacts.active {
     background: none;
@@ -362,7 +356,7 @@ legend {
     -webkit-animation:0.3s lightSpeedOut ease;
     animation:0.3s lightSpeedOut ease;
 }
-.ng-hide-remove {
+.animate-frag {
     -webkit-animation:0.3s lightSpeedIn ease;
     animation:0.3s lightSpeedIn ease;
 }
@@ -471,5 +465,85 @@ legend {
         opacity: 0;
     }
 }
+/* Default view */
+/*.view{*/
+    /*position: absolute;*/
+    /*top: 100px;*/
+    /*width: 100%;*/
+    /*transition: 300ms;*/
+/*}*/
+
+/* First animation*/
+/*.first .view.ng-enter{*/
+    /*left: -100%;*/
+/*}*/
+
+/*.first .view.ng-enter.ng-enter-active{*/
+    /*left: 0%;*/
+/*}*/
+
+/*.first .view.ng-leave{*/
+    /*left: 0%;*/
+/*}*/
+
+/*.first .view.ng-leave.ng-leave-active{*/
+    /*left: 100%;*/
+/*}*/
+
+/* Second animation*/
+/*.second .view.ng-enter{*/
+    /*left: 100%;*/
+/*}*/
+
+/*.second .view.ng-enter.ng-enter-active{*/
+    /*left: 0%;*/
+/*}*/
+
+/*.second .view.ng-leave{*/
+    /*left: 0%;*/
+/*}*/
+
+/*.second .view.ng-leave.ng-leave-active{*/
+    /*left: -100%;*/
+/*}*/
+
+/* Third animation*/
+/*.third .view.ng-enter{*/
+    /*top: 100%;*/
+/*}*/
+
+/*.third .view.ng-enter.ng-enter-active{*/
+    /*top: 0%;*/
+/*}*/
+
+/*.third .view.ng-leave{*/
+    /*top: 0%;*/
+/*}*/
+
+/*.third .view.ng-leave.ng-leave-active{*/
+    /*top: -100%;*/
+/*}*/
+
+/* Third animation*/
+/*.welcome .view.ng-enter{*/
+    /*opacity: 0;*/
+/*}*/
 
 
+
+/* Layout style.... */
+
+/*.box{*/
+    /*width: 100%;*/
+    /*position: absolute;*/
+    /*height: 300px;*/
+    /*background: tomato;*/
+    /*line-height: 300px;*/
+    /*text-align: center;*/
+    /*font-size: 60px;*/
+    /*text-transform: uppercase;*/
+/*}*/
+
+/*.box.n{*/
+    /*text-transform: none;*/
+/*}*/

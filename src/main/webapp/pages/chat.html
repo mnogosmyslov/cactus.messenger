@@ -9,30 +9,23 @@
     <meta name = "keywords" content = "" />
     <meta name = "robots" content = "" />
 
-
     <link th:href="@{/resources/css/chatstyle.css}" href="../resources/css/chatstyle.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/css/materialize.min.css}" href="../resources/css/materialize.min.css" rel="stylesheet" type="text/css"/>
 
     <title th:text="#{main.title}"></title>
 
 </head>
-<body ng-app="ChatApp" >
-<div ng-view="" class="contolls"></div>
-    <div ng-controller="HeaderContacts">
-    <header class="greenheader blue darken-4 contolls">
-        <a id="logo" href="/cactus/"></a>
-            <a href="#/settings" id="user-settings" class="waves-effect waves-darken blue darken-4 btn-flat">Settings</a>
-            <a href="#/contacts" id="user-contacts" class="waves-effect waves-darken blue darken-4 btn-flat">Contacts</a>
-            <a href="#/profile" id="user-profile" class="waves-effect waves-darken blue darken-4 btn-flat">Profile</a>
-    </header>
-        <div class="contacts" ng-show="setting">
-            <div ng-include="'/cactus/pages/settings_frag.html'"></div>
-            <div class="back" ng-click="setting = false" ng-class="{ active: setting }"></div>
-        </div>
-    </div>
+<body ng-app="ChatApp" ng-class="animation">
     <div ng-controller="ChatApi as api">
+        <header class="greenheader purple darken-3 contolls">
+            <a  href="#/" ><img ng-src="{{settingsInfo.photo}}" id="logo"/></a>
+            <a href="#/settings" id="user-settings" class="waves-effect waves-darken purple darken-3 btn-flat">Settings</a>
+            <a href="#/contacts" id="user-contacts" class="waves-effect waves-darken purple darken-3 btn-flat">Contacts</a>
+            <a href="#/profile" id="user-profile" class="waves-effect waves-darken purple darken-3 btn-flat">Profile</a>
+        </header>
+        <div ng-view=""  class="contolls view"></div>
         <aside id="chatlist" style="overflow-y: scroll">
-            <input ng-model="searchText" />
+            <input type="text" ng-model="searchText" />
             <div>
                 <ul>
                     <li ng-repeat="chat in chats | filter:searchText"
