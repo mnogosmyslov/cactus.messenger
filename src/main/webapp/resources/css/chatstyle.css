@@ -116,12 +116,31 @@ main div{
 #logo{
     height: 60px;
     position: absolute;
-    right: calc(50% - 60px);
+    left: calc(50% - 50px);
     top: 5px;
+}
+.av {
+    height: 60px;
+    position: absolute;
+    left: calc(50% - 50px);
 }
 .contacts ul {
     list-style: none;
     padding: 0;
+}
+.navigation {
+    opacity: 0.4;
+    position: absolute!important;
+    left: 20px!important;
+    padding: 0!important;
+    height: 60px!important;
+    z-index: 10002;
+}
+.navigation:hover {
+    opacity: 1;
+}
+.navigation i{
+    color: #e0e0e0;
 }
 .contacts li {
     float: none;
@@ -275,7 +294,8 @@ input[disabled]{
 }
 .contolls a {
     color: #fff;
-    padding: 15px 20px 40px 20px;
+    padding: 15px 20px 55px 20px;
+    margin: 0!important;
 }
 .conshadow {
     position: absolute!important;

@@ -17,11 +17,11 @@
 </head>
 <body ng-app="ChatApp" ng-class="animation">
     <div ng-controller="ChatApi as api">
-        <header class="greenheader purple darken-3 contolls">
-            <a  href="#/" ><img ng-src="{{settingsInfo.photo}}" id="logo"/></a>
-            <a href="#/settings" id="user-settings" class="waves-effect waves-darken purple darken-3 btn-flat">Settings</a>
-            <a href="#/contacts" id="user-contacts" class="waves-effect waves-darken purple darken-3 btn-flat">Contacts</a>
-            <a href="#/profile" id="user-profile" class="waves-effect waves-darken purple darken-3 btn-flat">Profile</a>
+        <header class="indigo darken-4 contolls">
+            <a  href="#/" class="av"><img ng-src="{{settingsInfo.photo}}" id="logo"/></a>
+            <a href="#/settings" id="user-settings" class="waves-effect waves-light indigo darken-4 btn-flat">Settings</a>
+            <a href="#/contacts" id="user-contacts" class="waves-effect waves-light indigo darken-4 btn-flat">Contacts</a>
+            <a href="#/profile" id="user-profile" class="waves-effect waves-light indigo darken-4 btn-flat">Profile</a>
         </header>
         <div ng-view=""  class="contolls view"></div>
         <aside id="chatlist" style="overflow-y: scroll">
