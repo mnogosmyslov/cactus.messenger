@@ -19,13 +19,13 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
         return listener.promise;
     };
 
-    service.send = function(message, time) {
+    service.send = function(message) {
         var viewed = false;
         socket.stomp.send(service.CHAT_BROKER, {
             priority: 9
         }, JSON.stringify({
             message: message,
-            date: time,
+            date: Date.now(),
             viewed : viewed,
             authorId: userInfo.id
         }));

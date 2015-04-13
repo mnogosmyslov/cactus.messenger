@@ -2,12 +2,14 @@
  * Created by Airofsummer on 23.03.2015.
  */
     angular.module("ChatApp").controller("NewContact", function($scope, $http){
-        var data = $scope.find;
+
         $scope.findContact = function(){
+            var url = $scope.find;
+            var mydata = {login: url};
             $http({
                 method: 'POST',
-                url: 'someUrlhere',
-                data: data,
+                url: 'http://localhost:8080/server/user/search/'+url,
+                data: mydata,
                 success: (function(data, status, headers, config) {
                     console.info("You have found "+ data);
                 }),

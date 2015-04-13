@@ -2,11 +2,11 @@
     <a class="conshadow" href="#/"></a>
 <div class="contacts-content add-new">
 <div  ng-controller="NewContact">
-<input type="text" name="find" ng-model="find" placeholder="Enter the username" autofocus="" />
-
-    <a href="#/" id="user-new" style="position: relative; left: 0!important;">Close</a>
-    <button class="waves-effect waves-light btn-flat add-contact" ng-click="findContact()" style="position: relative; right: 0!important;">Add</button>
-
+    <form ng-submit="findContact()" novalidate="">
+        <input type="text" name="find" ng-model="find" placeholder="Enter the username" autofocus="" />
+        <a href="#/" class="waves-effect waves-light btn-flat add-contact" id="user-new" style="position: absolute; left: 0!important;">Close</a>
+        <button class="waves-effect waves-light btn-flat add-contact" style="position: absolute; right: 0!important;">Add</button>
+    </form>
 </div>
     </div>
 </div>

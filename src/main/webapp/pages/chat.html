@@ -17,11 +17,15 @@
 </head>
 <body ng-app="ChatApp" ng-class="animation">
     <div ng-controller="ChatApi as api">
+
         <header class="indigo darken-4 contolls">
-            <a  href="#/" class="av"><img ng-src="{{settingsInfo.photo}}" id="logo"/></a>
+            <a  href="#/profile" class="av">
+                <p ng-cloak="">{{settingsInfo.name}}</p>
+                <p ng-cloak="">@{{settingsInfo.login}}</p>
+                <img ng-src="{{settingsInfo.photo}}" id="logo"/>
+            </a>
             <a href="#/settings" id="user-settings" class="waves-effect waves-light indigo darken-4 btn-flat">Settings</a>
             <a href="#/contacts" id="user-contacts" class="waves-effect waves-light indigo darken-4 btn-flat">Contacts</a>
-            <a href="#/profile" id="user-profile" class="waves-effect waves-light indigo darken-4 btn-flat">Profile</a>
         </header>
         <div ng-view=""  class="contolls view"></div>
         <aside id="chatlist" style="overflow-y: scroll">
@@ -30,11 +34,12 @@
                 <ul>
                     <li ng-repeat="chat in chats | filter:searchText"
                         ng-class="{active:isActiveChat(chat.url)}"
-                        ng-click="onClickChat(chat)">{{chat.list.partner.username}}</li>
+                        ng-click="onClickChat(chat)"
+                        ng-cloak="">{{chat.list.partner.username}}</li>
                 </ul>
             </div>
         </aside>
-        <div class="fixed-action-btn" style="position: fixed; bottom: 10px; right: 60px;">
+        <div class="fixed-action-btn" style="position: fixed; bottom: 3px; right: 65px;">
             <a>
                 <i class="small mdi-editor-attach-file"></i>
             </a>
@@ -46,21 +51,24 @@
             </ul>
         </div>
         <main>
+
             <div id="chatPreView">
                 <div ng-repeat="profile in profiles" class="user-profile">
                     <img class="mini-avatar" ng-src="{{profile.id2.avatar}}" />
-                    <div class="user-name">{{profile.response.name}}</div>
-                    <div class="user-nick">{{profile.id2.username}}</div>
+                    <div class="user-name" ng-cloak="">{{profile.response.name}}</div>
+                    <div class="user-nick" ng-cloak="">{{profile.id2.username}}</div>
                 </div>
                 <div ng-include="currentChat"></div>
                 <div class="messages">
                     <p ng-repeat="history in history| orderBy:'history.id':true" class="message">
-                        <time>{{history.date | date:'HH:mm:ss'}}</time>
-                        <span ng-class="{self: history.self}">{{history.text}}</span>
+                        <time ng-cloak="">{{history.date | date:'HH:mm:ss'}}</time>
+                        <span ng-cloak="" ng-class="{self: history.self}">{{history.text}}</span>
                     </p>
-                <p ng-repeat="message in messages | orderBy:'message.id':true" class="message">
-                <time>{{message.date | date:'HH:mm:ss'}}</time>
-                <span ng-class="{self: message.self}">{{message.message}}</span>
+                <p ng-repeat="message in messages | orderBy:'message.id':true" class="message" ng-class="{left: left, right: right}">
+
+                    <img ng-src="{{settingsInfo.photo}}" class="usr-avatar"/>
+                <time ng-cloak="">{{message.date | date:'HH:mm:ss'}}</time>
+                <span ng-cloak="" ng-class="{self: message.self}">{{message.message}}</span>
                 </p>
                 </div>
             </div>
@@ -68,7 +76,7 @@
                 <input class="new_message" type="text" placeholder="Compose a new message..." ng-model="message" />
                 <div class="info">
                     <button
-                            class="waves-effect waves-teal btn-flat middle mdi-content-send"
+                            class="waves-effect circle waves-teal btn-flat middle mdi-content-send"
                             ng-disabled="message.length === 0">
                     </button>
                 </div>
@@ -87,7 +95,6 @@
     <script th:src="@{/resources/js/libs/bootstrap.js}" src="../resources/js/libs/bootstrap.js"></script>
     <script th:src="@{/resources/js/libs/materialize.min.js}" src="../resources/js/libs/materialize.min.js"></script>
     <script th:src="@{/resources/js/chatApp.js}" src="../resources/js/chatApp.js"></script>
-    <script th:src="@{/resources/js/controllers/chat/header-contacts.js}" src="../resources/js/controllers/chat/header-contacts.js"></script>
     <script th:src="@{/resources/js/controllers/chat/main.js}" src="../resources/js/controllers/chat/main.js"></script>
     <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/search.js"></script>
     <script th:src="@{/resources/js/controllers/chatService.js}" src="../resources/js/controllers/chatService.js"></script>

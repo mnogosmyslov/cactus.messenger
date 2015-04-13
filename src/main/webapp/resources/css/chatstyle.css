@@ -1,4 +1,4 @@
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1024px) {
     aside {
         width: 0!important;
         opacity: 0!important;
@@ -16,6 +16,9 @@
     .profile-main-info {
         width: 100%!important;
     }
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    content: url("../img/preload.gif");
 }
 ::-webkit-scrollbar {
     display: none;
@@ -114,16 +117,20 @@ main div{
     opacity: 0.6;
 }
 #logo{
+    position: relative;
     height: 60px;
-    position: absolute;
-    left: calc(50% - 50px);
-    top: 5px;
+    top: 0;
+    right: 0;
 }
 .av {
     height: 60px;
-    position: absolute;
-    left: calc(50% - 50px);
+    position: relative;
+    right: 50px;
+    float: right;
+    padding: 0!important;
+    display: inline-block;
 }
+
 .contacts ul {
     list-style: none;
     padding: 0;
@@ -485,85 +492,52 @@ legend {
         opacity: 0;
     }
 }
-/* Default view */
-/*.view{*/
-    /*position: absolute;*/
-    /*top: 100px;*/
-    /*width: 100%;*/
-    /*transition: 300ms;*/
-/*}*/
+ /*Default view */
+.view{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: 300ms;
+}
+
+ /*Second animation*/
+.second .view.ng-enter{
+    left: 100%;
+}
+
+.second .view.ng-enter.ng-enter-active{
+    left: 0%;
+}
+
+.second .view.ng-leave{
+    left: 0%;
+}
+
+.second .view.ng-leave.ng-leave-active{
+    left: 100%;
+}
 
 /* First animation*/
-/*.first .view.ng-enter{*/
-    /*left: -100%;*/
-/*}*/
+.first .view.ng-enter{
+    opacity: 0;
+}
 
-/*.first .view.ng-enter.ng-enter-active{*/
-    /*left: 0%;*/
-/*}*/
+.first .view.ng-enter.ng-enter-active{
+    opacity: 1;
+}
 
-/*.first .view.ng-leave{*/
-    /*left: 0%;*/
-/*}*/
+.first .view.ng-leave{
+    opacity: 1;
+}
 
-/*.first .view.ng-leave.ng-leave-active{*/
-    /*left: 100%;*/
-/*}*/
+.first .view.ng-leave.ng-leave-active{
+    opacity: 0;
+}
 
-/* Second animation*/
-/*.second .view.ng-enter{*/
-    /*left: 100%;*/
-/*}*/
-
-/*.second .view.ng-enter.ng-enter-active{*/
-    /*left: 0%;*/
-/*}*/
-
-/*.second .view.ng-leave{*/
-    /*left: 0%;*/
-/*}*/
-
-/*.second .view.ng-leave.ng-leave-active{*/
-    /*left: -100%;*/
-/*}*/
-
-/* Third animation*/
-/*.third .view.ng-enter{*/
-    /*top: 100%;*/
-/*}*/
-
-/*.third .view.ng-enter.ng-enter-active{*/
-    /*top: 0%;*/
-/*}*/
-
-/*.third .view.ng-leave{*/
-    /*top: 0%;*/
-/*}*/
-
-/*.third .view.ng-leave.ng-leave-active{*/
-    /*top: -100%;*/
-/*}*/
-
-/* Third animation*/
-/*.welcome .view.ng-enter{*/
-    /*opacity: 0;*/
-/*}*/
-
-
-
-/* Layout style.... */
-
-/*.box{*/
-    /*width: 100%;*/
-    /*position: absolute;*/
-    /*height: 300px;*/
-    /*background: tomato;*/
-    /*line-height: 300px;*/
-    /*text-align: center;*/
-    /*font-size: 60px;*/
-    /*text-transform: uppercase;*/
-/*}*/
-
-/*.box.n{*/
-    /*text-transform: none;*/
-/*}*/
+.collection{
+    margin: 0!important;
+}
+/*messages*/
+.usr-avatar {
+    height: 50px;
+}
