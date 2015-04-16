@@ -51,24 +51,17 @@
             </ul>
         </div>
         <main>
-
             <div id="chatPreView">
-                <div ng-repeat="profile in profiles" class="user-profile">
-                    <img class="mini-avatar" ng-src="{{profile.id2.avatar}}" />
-                    <div class="user-name" ng-cloak="">{{profile.response.name}}</div>
-                    <div class="user-nick" ng-cloak="">{{profile.id2.username}}</div>
-                </div>
-                <div ng-include="currentChat"></div>
                 <div class="messages">
                     <p ng-repeat="history in history| orderBy:'history.id':true" class="message">
-                        <time ng-cloak="">{{history.date | date:'HH:mm:ss'}}</time>
-                        <span ng-cloak="" ng-class="{self: history.self}">{{history.text}}</span>
+                        <img ng-src="{{history.photo}}" class="usr-avatar"/>
+                        <time class="time" ng-cloak="">{{history.date | date:'HH:mm:ss'}}</time>
+                        <span class="msg-text" ng-cloak="" ng-class="{self: history.self}">{{history.message}}</span>
                     </p>
-                <p ng-repeat="message in messages | orderBy:'message.id':true" class="message" ng-class="{left: left, right: right}">
-
+                <p ng-repeat="message in messages | orderBy:'message.id':true" class="message" ng-class="{'self': settingsInfo.id === message.authorId}">
                     <img ng-src="{{settingsInfo.photo}}" class="usr-avatar"/>
-                <time ng-cloak="">{{message.date | date:'HH:mm:ss'}}</time>
-                <span ng-cloak="" ng-class="{self: message.self}">{{message.message}}</span>
+                    <time class="time" ng-cloak="">{{message.date | date:'HH:mm:ss'}}</time>
+                    <span class="msg-text" ng-cloak="" >{{message.message}}</span>
                 </p>
                 </div>
             </div>

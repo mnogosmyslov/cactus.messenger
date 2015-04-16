@@ -34,8 +34,8 @@ h1 {
     z-index: 901;
 }
 a {
-    color: white;
-    font: normal 15pt Arial;
+    color: white!important;
+    font-size: 15pt;
     margin-right: 15px;
     padding: 10px 20px;
     cursor: pointer;

@@ -16,7 +16,6 @@
 </head>
 
 <body ng-app="LandApp" class="demo-3">
-
 <div id="tabs" ng-controller="TabsCtrl">
     <h3>Sign in</h3>
     <div id="sign_in">
@@ -39,6 +38,7 @@
                     type="password"
                     name="j_password"
                     ng-model="password"
+                    max="60"
                     required="" />
             <label for="password">Password</label>
             </div>

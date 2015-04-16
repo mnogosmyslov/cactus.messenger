@@ -85,7 +85,6 @@ body{
 }
 .letters {
     background: url(../img/hoody.png) no-repeat;
-    background-position-y: -400px;
     width: 350px;
     height: 600px;
     margin: auto;
