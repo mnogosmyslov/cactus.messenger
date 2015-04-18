@@ -34,7 +34,7 @@ public class UserController {
 	public String createUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
 		Assert.notNull(userAccountVO);
 		userAccountService.createUserAccount(userAccountVO);
-		return PageNames.INDEX;
+		return "redirect:/" + PageNames.LOGIN;
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT,
@@ -61,5 +61,14 @@ public class UserController {
 	public void deleteUser(@PathVariable long id) throws SQLException {
 		Assert.notNull(id);
 		userAccountService.deleteUserAccount(id);
+	}
+
+	@RequestMapping(value = "/{id}/addContact/{login}", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public String addContact(@PathVariable long id, @PathVariable String login) {
+		Assert.notNull(id);
+		Assert.notNull(login);
+		userAccountService.addContact(id, login);
+		return PageNames.PROFILE;
 	}
 }
