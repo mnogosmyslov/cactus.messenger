@@ -8,7 +8,7 @@
             var mydata = {login: url};
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/server/user/search/'+url,
+                url: '/cactus/user/'+profile.id+'/addContact/'+url,
                 data: mydata,
                 success: (function(data, status, headers, config) {
                     console.info("You have found "+ data);

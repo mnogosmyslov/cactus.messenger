@@ -77,6 +77,9 @@
         </main>
     </div>
 
+    <script th:inline="javascript">
+        var profile = [[${userAccount}]];
+    </script>
     <script th:src="@{/resources/js/libs/jquery-2.1.3.min.js}" src="../resources/js/libs/jquery-2.1.3.min.js"></script>
     <script th:src="@{/resources/js/libs/sock.min.js}" src="../resources/js/libs/sock.min.js"></script>
     <script th:src="@{/resources/js/libs/stomp.min.js}" src="../resources/js/libs/stomp.min.js"></script>
@@ -92,5 +95,12 @@
     <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/search.js"></script>
     <script th:src="@{/resources/js/controllers/chatService.js}" src="../resources/js/controllers/chatService.js"></script>
     <script th:src="@{/resources/js/controllers/chat/route.js}" src="../resources/js/controllers/chat/route.js"></script>
+    <!--<script th:inline="javascript">-->
+        <!---->
+        <!--angular.module("ChatApp").controller("ChatApi", function($scope, $http) {-->
+            <!--$http.get("/server/user/" + [[${userAccount.id}]])-->
+                    <!--.success(function(response) {$scope.settingsInfo = response;});-->
+         <!--})-->
+    <!--</script>-->
 </body>
 </html>

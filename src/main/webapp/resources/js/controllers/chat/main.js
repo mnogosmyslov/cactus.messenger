@@ -6,7 +6,9 @@ angular.module("ChatApp").controller("ChatApi", function($scope, $http, ChatServ
     $scope.message = "";
     //$scope.max = 140;
     $scope.history = [];
-    $http.get("/server/user/999")
+    //$http.get("/server/user/999")
+    //    .success(function(response) {$scope.settingsInfo = response;});
+    $http.get("/server/user/" + profile.id)
         .success(function(response) {$scope.settingsInfo = response;});
     $http.get("../cactus/pages/chats/chatid1.json")
         .success(function(response) {$scope.history = response;});
