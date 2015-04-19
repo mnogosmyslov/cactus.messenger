@@ -23,7 +23,7 @@ public class ChatController {
     @RequestMapping(method = GET)
     public String messengerView(ModelMap modelMap) {
         UserDetails userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserAccountVO userAccount = userAccountService.getUserWithoutPass(userDetails.getUsername());
+        UserAccountVO userAccount = userAccountService.getByLogin(userDetails.getUsername());
         modelMap.addAttribute("userAccount", userAccount);
         return PageNames.MESSENGER;
     }
