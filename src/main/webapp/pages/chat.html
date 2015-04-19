@@ -53,16 +53,22 @@
         <main>
             <div id="chatPreView">
                 <div class="messages">
-                    <p ng-repeat="history in history| orderBy:'history.id':true" class="message">
-                        <img ng-src="{{history.photo}}" class="usr-avatar"/>
-                        <time class="time" ng-cloak="">{{history.date | date:'HH:mm:ss'}}</time>
-                        <span class="msg-text" ng-cloak="" ng-class="{self: history.self}">{{history.message}}</span>
-                    </p>
-                <p ng-repeat="message in messages | orderBy:'message.id':true" class="message" ng-class="{'self': settingsInfo.id === message.authorId}">
+                    <ul>
+                    <li ng-repeat="history in history | orderBy:'history.id':true" class="message" ng-class="{true:'right', false:'left'}[settingsInfo.id === history.authorId]">
+                        <img ng-src="{{settingsInfo.photo}}" class="usr-avatar"/>
+
+                        <span class="msg-text" ng-cloak="">{{history.message}}
+                            <p><time class="time" ng-cloak="">{{history.date | date:'HH:mm:ss'}}</time></p>
+                        </span>
+                    </li>
+                <li ng-repeat="message in messages | orderBy:'message.id':true" class="message" ng-class="{true:'right', false:'left'}[settingsInfo.id === message.authorId]">
                     <img ng-src="{{settingsInfo.photo}}" class="usr-avatar"/>
-                    <time class="time" ng-cloak="">{{message.date | date:'HH:mm:ss'}}</time>
-                    <span class="msg-text" ng-cloak="" >{{message.message}}</span>
-                </p>
+
+                    <span class="msg-text" ng-cloak="" >{{message.message}}
+                        <p><time class="time" ng-cloak="">{{message.date | date:'HH:mm:ss'}}</time></p>
+                    </span>
+                </li>
+                    </ul>
                 </div>
             </div>
             <form ng-submit="addMessage()" name="messageForm">
@@ -95,12 +101,5 @@
     <script th:src="@{/resources/js/controllers/chat/search.js}" src="../resources/js/controllers/chat/search.js"></script>
     <script th:src="@{/resources/js/controllers/chatService.js}" src="../resources/js/controllers/chatService.js"></script>
     <script th:src="@{/resources/js/controllers/chat/route.js}" src="../resources/js/controllers/chat/route.js"></script>
-    <!--<script th:inline="javascript">-->
-        <!---->
-        <!--angular.module("ChatApp").controller("ChatApi", function($scope, $http) {-->
-            <!--$http.get("/server/user/" + [[${userAccount.id}]])-->
-                    <!--.success(function(response) {$scope.settingsInfo = response;});-->
-         <!--})-->
-    <!--</script>-->
 </body>
 </html>

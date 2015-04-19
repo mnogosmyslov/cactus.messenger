@@ -15,6 +15,7 @@
     }
     .profile-main-info {
         width: 100%!important;
+        left: 0!important;
     }
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
@@ -24,7 +25,8 @@
     display: none;
 }
 body, html {
-    height: 99%;
+    height: 99%!important;
+
 }
 html {
     overflow-x: hidden;
@@ -357,11 +359,13 @@ legend {
 
 }
 .profile-main-info {
-    bottom: 0;
-    position: fixed;
-    z-index: 10001;
+
+     z-index: 10001;
     width: 80%;
-    height: calc(100% - 70px);
+    height: 100%;
+    margin: 0!important;
+    position:absolute;
+    overflow: hidden;
     background-color: #fff;
     transition: 0.3s ease-in-out;
 }
@@ -377,7 +381,7 @@ legend {
     left: 0;
 }
 .profile {
-    margin-top: 80px;
+    margin-top: 70px;
     margin-left: 20%;
     height: calc(100% - 50px);
 }
@@ -547,18 +551,133 @@ legend {
 .collection{
     margin: 0!important;
 }
+
 /*messages*/
 .usr-avatar {
+    position: absolute;
     height: 50px;
+}
+.right .usr-avatar {
+    right: 8px!important;
+}
+.left .usr-avatar {
+    left: 8px;
 }
 .messages {
     color: #232323;
+    width: 100%;
+}
+.message {
+    width: auto;
+}
+li {
+    width: auto!important;
+}
+.msg-text p{
+    margin: 0;
 }
 .messages .time {
     color: #717171;
     font-size: 8pt;
 }
-.self {
-    position: relative;
-    right: 0;
+
+.messages ul
+{
+    padding: 50px;
+    list-style-type: none;
 }
+
+.messages ul li
+{
+    height: auto;
+    margin-bottom: 10px;
+    clear: both;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.messages ul li span
+{
+    display: inline-block;
+    word-wrap: break-word;
+    max-width: 500px;
+    background-color: white;
+    padding: 5px;
+    position: relative;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.3);
+    box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.3);
+}
+
+.messages ul li span.left
+{
+    float: left;
+}
+
+.messages ul li span.left:after
+{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -8.5px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid white;
+}
+
+.messages ul li span.left:before
+{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -9px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid black;
+}
+
+.messages ul li span.right:after
+{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -8px;
+    top: 6px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #dbedfe;
+}
+
+.messages ul li span.right:before
+{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -9px;
+    top: 6px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid black;
+}
+
+.messages ul li span.right
+{
+    float: right;
+    background-color: #dbedfe;
+}
+
+.clear
+{
+    clear: both;
+}
+

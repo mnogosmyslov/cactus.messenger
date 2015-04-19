@@ -1,10 +1,5 @@
-angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
-    var userInfo;
-    $http.get("/server/user/999")
-        .success(function(response) {
-            userInfo = response;
-            return userInfo;
-        });
+angular.module("ChatApp").service("ChatService", function($q, $timeout) {
+
     var service = {}, listener = $q.defer(), socket = {
         client: null,
         stomp: null
@@ -12,8 +7,8 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
 
     service.RECONNECT_TIMEOUT = 30000;
     service.SOCKET_URL = "/server/chat";
-    service.CHAT_TOPIC = "/conversation";
-    service.CHAT_BROKER = "/messenger/chat";
+    service.CHAT_TOPIC = "/chat/"+profile.login;
+    service.CHAT_BROKER = "/messenger/chat/"+100;
 
     service.receive = function() {
         return listener.promise;
@@ -27,7 +22,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
             message: message,
             date: Date.now(),
             viewed : viewed,
-            authorId: userInfo.id
+            authorId: profile.id
         }));
     };
 
@@ -41,6 +36,7 @@ angular.module("ChatApp").service("ChatService", function($q, $timeout, $http) {
         var message = JSON.parse(data), out = {};
         out.message = message.message;
         out.date = new Date(message.date);
+        out.authorId = message.authorId;
         if (_.contains(messageIds, message.id)) {
             out.self = true;
             messageIds = _.remove(messageIds, message.id);
