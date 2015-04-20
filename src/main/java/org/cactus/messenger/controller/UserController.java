@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -31,10 +32,15 @@ public class UserController {
     }
 
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
-	public String createUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
+	public ModelAndView createUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
 		Assert.notNull(userAccountVO);
 		userAccountService.createUserAccount(userAccountVO);
-		return "redirect:/" + PageNames.LOGIN;
+		return new ModelAndView("login"); //+ PageNames.LOGIN
+	}
+
+	@RequestMapping(value = PageNames.LOGIN)
+	public ModelAndView loginPage() {
+		return new ModelAndView("redirect:/login");
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT,
