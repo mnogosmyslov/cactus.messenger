@@ -11,7 +11,7 @@ import org.springframework.remoting.caucho.HessianProxyFactoryBean;
 import javax.annotation.Resource;
 
 @Configuration
-@PropertySource("classpath:messages/app.properties")
+@PropertySource("classpath:messages/app.properties") //TODO remote server
 public class ServicesConfig {
 
     @Resource
