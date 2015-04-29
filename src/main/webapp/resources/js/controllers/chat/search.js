@@ -11,7 +11,7 @@
                 url: '/cactus/user/'+profile.id+'/addContact/'+url,
                 data: mydata,
                 success: (function(data, status, headers, config) {
-                    console.info("You have found "+ data);
+                    location.href='#/';
                 }),
                 error: (function(data, status, headers, config){
                     console.warn('Alas');

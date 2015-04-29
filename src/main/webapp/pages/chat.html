@@ -18,16 +18,18 @@
 <body ng-app="ChatApp" ng-class="animation">
     <div ng-controller="ChatApi as api">
 
-        <header class="indigo darken-4 contolls">
+        <header class=" contolls" style="background-color: #303F9F">
             <a  href="#/profile" class="av">
                 <p ng-cloak="">{{settingsInfo.name}}</p>
                 <p ng-cloak="">@{{settingsInfo.login}}</p>
                 <img ng-src="{{settingsInfo.photo}}" id="logo"/>
             </a>
-            <a href="#/settings" id="user-settings" class="waves-effect waves-light indigo darken-4 btn-flat">Settings</a>
-            <a href="#/contacts" id="user-contacts" class="waves-effect waves-light indigo darken-4 btn-flat">Contacts</a>
+            <a href="#/settings" id="user-settings" class="waves-effect waves-light btn-flat" style="background-color: #303F9F">Settings</a>
+            <a href="#/contacts" id="user-contacts" class="waves-effect waves-light btn-flat" style="background-color: #303F9F">Contacts</a>
         </header>
+
         <div ng-view=""  class="contolls view"></div>
+
         <aside id="chatlist" style="overflow-y: scroll">
             <input type="text" ng-model="searchText" />
             <div>
@@ -85,6 +87,7 @@
 
     <script th:inline="javascript">
         var profile = [[${userAccount}]];
+        var contactIds = [[${userAccount.contacts}]];
     </script>
     <script th:src="@{/resources/js/libs/jquery-2.1.3.min.js}" src="../resources/js/libs/jquery-2.1.3.min.js"></script>
     <script th:src="@{/resources/js/libs/sock.min.js}" src="../resources/js/libs/sock.min.js"></script>

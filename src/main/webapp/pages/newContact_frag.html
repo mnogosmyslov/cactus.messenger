@@ -4,8 +4,8 @@
 <div  ng-controller="NewContact">
     <form ng-submit="findContact()" novalidate="">
         <input type="text" name="find" ng-model="find" placeholder="Enter the username" autofocus="" />
-        <a href="#/" class="waves-effect waves-light btn-flat add-contact" id="user-new" style="position: absolute; left: 0!important;">Close</a>
-        <button class="waves-effect waves-light btn-flat add-contact" style="position: absolute; right: 0!important;">Add</button>
+        <button class="waves-effect waves-light btn-flat add-contact" onclick="location.href='#/'" style="position: absolute; left: 0!important; margin: 0 20px">Close</button>
+        <button class="waves-effect waves-light btn-flat add-contact" style="position: absolute; right: 0!important; margin: 0 20px">Add</button>
     </form>
 </div>
     </div>

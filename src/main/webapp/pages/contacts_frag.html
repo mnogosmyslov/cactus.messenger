@@ -10,12 +10,11 @@
 
         <ul>
             <li class="collection-item avatar"
-                ng-repeat="contact in contactLists | filter:searchText"
+                ng-repeat="contact in contacts | filter:searchText"
                 ng-click="onClickChat(contact)">
-                <img ng-src="{{contact.photo}}/cactus/resources/tmp/photo.png" alt="" class="photo-preview">
+                <img ng-src="{{contact.photo}}" alt="" class="photo-preview">
                 <span class="title">{{contact.name}}</span>
                 <p class="move-bitch">@{{contact.login}} <br>
-                    {{contact.email}}
                 </p>
             </li>
         </ul>

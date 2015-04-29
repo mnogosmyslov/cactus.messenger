@@ -15,7 +15,7 @@
     }
     .profile-main-info {
         width: 100%!important;
-        left: 0!important;
+        left: -20%!important;
     }
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
@@ -26,7 +26,6 @@
 }
 body, html {
     height: 99%!important;
-
 }
 html {
     overflow-x: hidden;
@@ -271,7 +270,7 @@ input[disabled]{
 }
 .add-new {
     padding: 20px;
-    height: 180px;
+    height: 150px;
     position: fixed;
     left: calc(50% - 250px);
     top: calc(50% - 150px);
@@ -570,6 +569,7 @@ legend {
 .message {
     width: auto;
 }
+
 li {
     width: auto!important;
 }
@@ -608,26 +608,41 @@ li {
     -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.3);
     box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.3);
 }
+.messages ul li span::after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -17px;
+    top: 0;
+    content: '';
 
+    border-style: solid;
+    border-width: 10px 17px 0 0;
+    border-color: #fff transparent transparent transparent;
+    -webkit-filter: drop-shadow(1px 0.5px 1px #aaa);
+    filter: drop-shadow(1px 0.5px 2px #aaa);
+
+}
 .messages ul li span.left
 {
     float: left;
 }
 
-.messages ul li span.left:after
-{
-    content: "";
-    display: inline-block;
+.messages ul li span::after {
+    width: 0;
+    height: 0;
     position: absolute;
-    left: -8.5px;
-    top: 7px;
-    height: 0px;
-    width: 0px;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid white;
-}
+    left: -17px;
+    top: 0;
+    content: '';
 
+    border-style: solid;
+    border-width: 10px 17px 0 0;
+    border-color: transparent transparent transparent #fff;
+    -webkit-filter: drop-shadow(1px 0.5px 1px #aaa);
+    filter: drop-shadow(1px 0.5px 2px #aaa);
+
+}
 .messages ul li span.left:before
 {
     content: "";
