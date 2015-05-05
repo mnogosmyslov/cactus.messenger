@@ -5,6 +5,7 @@ import org.cactus.messenger.security.UserDetailsImpl;
 import org.cactus.share.service.ChatService;
 import org.cactus.share.service.UserAccountService;
 import org.cactus.share.vo.UserAccountVO;
+import org.cactus.share.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,10 +28,11 @@ public class ChatController {
     @RequestMapping(method = GET)
     public String messengerView(ModelMap modelMap) {
         UserDetails userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserAccountVO userAccountVO = userAccountService.getByLogin(userDetails.getUsername());
+        UserVO userVO = userAccountService.getUserVOByLogin(userDetails.getUsername());
+	    UserAccountVO userAccountVO = userAccountService.getByLogin(userDetails.getUsername());
         modelMap.addAttribute("userAccount", userAccountVO);
-//        modelMap.addAttribute("contacts", userAccountService.getAllContacts(userAccountVO));
- 	    modelMap.addAttribute("chats", chatService.getAllChats(userAccountVO.getId()));
+        modelMap.addAttribute("contacts", userAccountService.getAllContacts(userVO));
+ 	    modelMap.addAttribute("chats", chatService.getAllChats(userVO.getId()));
 
         return PageNames.MESSENGER;
     }
