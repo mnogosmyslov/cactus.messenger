@@ -59,6 +59,10 @@ header input:focus{
 header div {
     float: left;
 }
+header a p {
+    margin: 0!important;
+    font-size: 10pt;
+}
 aside {
     margin-top: 70px;
     position: absolute;
@@ -142,9 +146,11 @@ main div{
 .navigation {
     opacity: 0.4;
     position: absolute!important;
-    left: 20px!important;
+    left: 5%!important;
+    top: 15px;
     padding: 0!important;
     height: 60px!important;
+    width: 60px!important;
     z-index: 10002;
 }
 .navigation:hover {
@@ -554,7 +560,7 @@ legend {
 /*messages*/
 .usr-avatar {
     position: absolute;
-    height: 50px;
+    height: 54px;
 }
 .right .usr-avatar {
     right: 8px!important;
@@ -608,19 +614,19 @@ li {
     -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.3);
     box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.3);
 }
-.messages ul li span::after {
+li.right span::after {
     width: 0;
     height: 0;
     position: absolute;
     right: -17px;
     top: 0;
     content: '';
-
     border-style: solid;
     border-width: 10px 17px 0 0;
     border-color: #fff transparent transparent transparent;
-    -webkit-filter: drop-shadow(1px 0.5px 1px #aaa);
-    filter: drop-shadow(1px 0.5px 2px #aaa);
+    -webkit-filter: drop-shadow(1px 1px 1px #aaa);
+    -moz-filter: drop-shadow(1px 1px 1px #aaa);
+    filter: drop-shadow(1px 1px 1px #aaa);
 
 }
 .messages ul li span.left
@@ -628,61 +634,22 @@ li {
     float: left;
 }
 
-.messages ul li span::after {
+li.left span::after {
     width: 0;
     height: 0;
     position: absolute;
-    left: -17px;
-    top: 0;
+    left: -13px;
+    top: -3.6px;
     content: '';
-
+    border:none;
     border-style: solid;
-    border-width: 10px 17px 0 0;
-    border-color: transparent transparent transparent #fff;
-    -webkit-filter: drop-shadow(1px 0.5px 1px #aaa);
-    filter: drop-shadow(1px 0.5px 2px #aaa);
+    border-width: 17px 10px  0 0;
+    border-color: #fff transparent transparent  transparent;
+    transform: rotate(90deg);
+    -webkit-filter: drop-shadow(1px 1px 1px #aaa);
+    -moz-filter: drop-shadow(1px 1px 1px #aaa);
+    filter: drop-shadow(1px 1px 1px #aaa);
 
-}
-.messages ul li span.left:before
-{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: -9px;
-    top: 7px;
-    height: 0px;
-    width: 0px;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid black;
-}
-
-.messages ul li span.right:after
-{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -8px;
-    top: 6px;
-    height: 0px;
-    width: 0px;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #dbedfe;
-}
-
-.messages ul li span.right:before
-{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -9px;
-    top: 6px;
-    height: 0px;
-    width: 0px;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid black;
 }
 
 .messages ul li span.right
