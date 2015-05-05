@@ -1,6 +1,7 @@
 package org.cactus.messenger.config;
 
 import org.cactus.share.common.ServiceNames;
+import org.cactus.share.service.ChatService;
 import org.cactus.share.service.UserAccountService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,11 @@ public class ServicesConfig {
     HessianProxyFactoryBean userAccountServiceBean() {
         return createServiceBean(ServiceNames.USER_ACCOUNT_SERVICE, UserAccountService.class);
     }
+
+	@Bean
+	HessianProxyFactoryBean chatServiceBean() {
+		return createServiceBean(ServiceNames.CHAT_SERVICE, ChatService.class);
+	}
 
 
     /**

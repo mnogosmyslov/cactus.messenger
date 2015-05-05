@@ -75,6 +75,6 @@ public class UserController {
 		Assert.notNull(id);
 		Assert.notNull(login);
 		userAccountService.addContact(id, login);
-		return PageNames.PROFILE;
+		return "redirect:" + PageNames.PROFILE;
 	}
 }

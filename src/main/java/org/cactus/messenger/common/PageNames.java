@@ -13,5 +13,6 @@ public abstract class PageNames {
     public final static String MESSENGER = "chat";
     public final static String LOGIN = "login";
     public final static String LOGOUT = "logout";
+    public final static String CONTACTS = "contacts_frag";
 
 }
