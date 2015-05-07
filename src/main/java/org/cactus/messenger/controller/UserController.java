@@ -35,7 +35,7 @@ public class UserController {
 	public ModelAndView createUser(@RequestBody UserAccountVO userAccountVO) throws SQLException {
 		Assert.notNull(userAccountVO);
 		userAccountService.createUserAccount(userAccountVO);
-		return new ModelAndView("login"); //+ PageNames.LOGIN
+		return new ModelAndView("redirect:/login"); //+ PageNames.LOGIN
 	}
 
 	@RequestMapping(value = PageNames.LOGIN)
