@@ -1,4 +1,4 @@
-angular.module("ChatApp").service("ChatService", function($q, $timeout) {
+angular.module("chatApp").service("ChatService", function($q, $timeout) {
 
     var service = {}, listener = $q.defer(), socket = {
         client: null,

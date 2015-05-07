@@ -19,7 +19,7 @@
     }
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
-    content: url("../img/preload.gif");
+    content: '';
 }
 ::-webkit-scrollbar {
     display: none;
@@ -79,7 +79,29 @@ aside input {
     width: calc(100% - 30px);
     margin: 20px auto 20px 20px;
 }
-
+aside img{
+    height: 54px;
+    margin-left: 10px;
+}
+aside span {
+    position: absolute;
+    left: 70px;
+    top: -65px;
+}
+aside span li {
+    margin: 5px 0;
+}
+aside input {
+    margin: 0px!important;
+}
+aside li {
+    border-bottom: solid #cad4d6 1px;
+    max-height: 70px;
+    cursor: pointer;
+}
+aside span li {
+    border: none;
+}
 main{
     margin-top: 70px;
     position: absolute;

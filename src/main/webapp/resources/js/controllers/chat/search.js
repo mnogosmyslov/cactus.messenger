@@ -1,7 +1,7 @@
 /**
  * Created by Airofsummer on 23.03.2015.
  */
-    angular.module("ChatApp").controller("NewContact", function($scope, $http){
+    angular.module("chatApp").controller("NewContact", function($scope, $http){
 
         $scope.findContact = function(){
             var url = $scope.find;
