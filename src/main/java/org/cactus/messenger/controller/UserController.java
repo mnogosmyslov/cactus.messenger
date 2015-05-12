@@ -1,6 +1,7 @@
 package org.cactus.messenger.controller;
 
 import org.cactus.messenger.common.PageNames;
+import org.cactus.share.service.ChatService;
 import org.cactus.share.service.UserAccountService;
 import org.cactus.share.vo.UserAccountVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class UserController {
 
     @Autowired
     private UserAccountService userAccountService;
+
+	@Autowired
+	private ChatService chatService;
 
     @ResponseBody
     @RequestMapping(value = "/{id}", method = GET, produces = {"application/json"})
@@ -74,7 +78,12 @@ public class UserController {
 	public String addContact(@PathVariable long id, @PathVariable String login) {
 		Assert.notNull(id);
 		Assert.notNull(login);
-		userAccountService.addContact(id, login);
-		return "redirect:" + PageNames.PROFILE;
+		if (!(userAccountService.addContact(id, login))) {
+
+			chatService.newChat(id, login);
+			return "redirect:" + PageNames.PROFILE;
+		}
+
+		return "redirect:" + PageNames.MESSENGER;
 	}
 }
