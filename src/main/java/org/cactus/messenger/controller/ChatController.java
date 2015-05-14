@@ -26,11 +26,12 @@ public class ChatController {
 
     @RequestMapping(method = GET)
     public String messengerView(ModelMap modelMap) {
-        UserDetails userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserVO userVO = userAccountService.getUserVOByLogin(userDetails.getUsername());
-        modelMap.addAttribute("userAccount", userVO);
-        modelMap.addAttribute("contacts", userAccountService.getAllContacts(userVO));
- 	    modelMap.addAttribute("chats", chatService.getAllChats(userVO.getId()));
+//        TODO: get full info about user from auth request
+//        UserDetails userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        UserVO userVO = userAccountService.getUserVOByLogin(userDetails.getUsername());
+//        modelMap.addAttribute("userAccount", userVO);
+//        modelMap.addAttribute("contacts", userAccountService.getAllContacts(userVO));
+// 	    modelMap.addAttribute("chats", chatService.getAllChats(userVO.getId()));
 
         return PageNames.MESSENGER;
     }
